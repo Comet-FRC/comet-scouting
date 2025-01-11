@@ -1,5 +1,7 @@
 var gameTimer = 0.0;
-var endTime = 150;
+var endTime = 15000;
+var gameEnded = false;
+
 var started = true;
 
 function beginGame() {
@@ -20,6 +22,7 @@ function beginGame() {
     gameTimer = 0;
 
     // begin timer counting up
+    gameEnded = false;
     setTimeout(function() { updateTimer() }, 10)
 }
 
@@ -30,19 +33,19 @@ function endGame() {
     startButton.onclick = function() { beginGame() };
 
     // stop the timer from counting up
-    gameTimer = endTime;
+    gameEnded = true;
 }
 
 function updateTimer() {
     // increment timer
-    gameTimer += 0.01;
+    gameTimer += 1;
 
     // update timer display
     var timerDisplay = document.getElementById("timerDisplay");
-    timerDisplay.innerText = gameTimer;
+    timerDisplay.innerText = gameTimer / 100.0;
     
     // if game is still going, continue 
-    if (gameTimer < endTime) {
+    if (gameTimer < endTime && !gameEnded) {
         setTimeout(function() { updateTimer() }, 10);
     }
 }
