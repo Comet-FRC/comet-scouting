@@ -1,0 +1,36 @@
+Scouting App Focus
+
+OFFLINE ACCESS
+	- This is the main feature we should focus on 
+	- It should still be easy to submit and receive data from scouts
+	- Can submit as many responses as needed, if offline then responses are added to the queue and submitted once back online
+	- Alternatively, we could have it plug directly into a device used exclusively for scouting like a Raspberry Pi and then just upload the data directly
+
+SCOUT ACCESIBILITY
+	- Should be easily accessible to both mobile devices and computers
+	- Easy to read as well
+	- We want to make it as easy as possible to get people to scout
+	- Maybe try to make it more enjoyable? Making it more interactive could do this
+	- Easy
+	- Being small, lightweight, and easy to install are very important otherwise people won't want to have it installed and therefore won't want to do any scouting
+
+COMMUNICATION WITH DRIVE TEAM 
+	- Must send data about teams that we will face to the drive team 
+		- this is more important for us as actual scouting leads than application specifics
+	- Sean should be privy to any data that we collect on any teams to allow them the best chance for future matches
+		- Portable printer to print out data and physically hand it to the drive team?
+	- Sean and the drive team should also be a part of the alliance selection process
+		- Sean could be the one who actually does alliance selection? 
+
+DATA COLLECTED 
+	- Amount of coral scored and levels that they are on
+	- Amount of algae scored 
+	- If possible: The amount of time taken to score coral and algae
+	- Deep / Shallow Climb
+	- Net scoring capability
+
+
+QUESTIONS / CONCERNS 
+	- Is it better to have the scouting app record actions as they happen or record everything all at once?
+		- I feel like the game this year is very timing-oriented, so it's probably important to store the timing of things 
+		- if a lot of people can score all coral points, keeping track of the time taken to do so becomes much more vital to keeping track of teams' data
