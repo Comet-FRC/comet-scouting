@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COMET FRC Scouting</title>
+
+    <link href="styles.css" rel="stylesheet">
+    <link href="script1.js" rel="script">
+  </head>
+
+
+  <body>
+    <div id="headers" class="headers"> 
+      <h1>Welcome to the COMET FRC Scouting App!</h1>
+      <h2>Please enter the data from your assigned team and match number, and when you submit, ensure that you scan your qr code on the scouting laptop.</h2>
+    </div>
+
+    
+    
+    <div id="form"> 
+      <label for="data1">Match Number:</label>
+      <input type="number" name="match" id="data1"> 
+      
+      <br>
+      
+      <label for="data2">Team Number:</label> 
+      <input type="number" name="team" id="data2">
+      
+      <br> 
+
+      
+      
+      <label for="submit">Submit</label>
+      <input type="button" name="submit" id="submit" value="Generate Code" onclick="generateCode()">
+    </div>
+    
+
+    <div id="qrcode"></div>
+
+    <script type="application/ecmascript" src="qrcode.js"></script>
+
+    <script type="application/ecmascript">
+      function generateCode() {
+        
+        // create a string to store the form data
+        var codeText = "";
+
+        // store the form data
+        for (let i = 1; i < 3; i++) {
+          var temp = document.getElementById("data" + i).value;
+        
+          codeText += temp + " ";
+        }
+        
+        // add the form data to the page 
+        var qrElem = document.getElementById("qrcode");
+        var qrCode = new QRCode(qrElem, { 
+          width:100,
+          height:100,
+          text:codeText
+        });
+      }
+       
+      // converts the given input into hexaDecimal to allow us to store more data in a 'smaller' qr code
+      function toHexa(toConvert) {
+        // need to convert to base 123 if we want to store time in 2 places
+ 
+        return toConvert; 
+      }
+
+
+    </script>  
+
+    <div id="game" class="game">
+      <input type="button" value="Start Game" id="starter" onclick="beginGame()">
+      
+      <div id="timer" class="timer">
+        <h2>Game Time: <span id=timerDisplay></span></h2> 
+      </div>
+    </div> 
+ 
+    <script type="application/ecmascript" src="game.js"></script>
+
+  </body>
+</html>

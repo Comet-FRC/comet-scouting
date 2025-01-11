@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Agency FB Bold";
+    src: url("fonts/AgencyFB-Bold.ttf");
+}
+
+html {
+    width: auto;
+    height: auto;
+    background-color:#877DAD
+}
+
+body {
+    background-color: #877DAD;
+    font-family: "Agency FB Bold";
+    color: black;
+}
+
+input {
+    color:black;
+}
+
+.timer {
+    visibility:hidden;
+}
