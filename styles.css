@@ -22,3 +22,29 @@ input {
 .timer {
     visibility:hidden;
 }
+
+#coral
+{
+    background-image: url("images/coral.png");
+    display: flex;
+    flex-direction: column;
+
+    width: 20rem;
+    height: 19rem;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}    
+
+#coral button
+{
+    background-color: rgba(0, 0, 0, 0);
+    flex-grow: 1;
+    color: rgb(226, 0, 226);
+    font-weight: bold;
+}
+
+#coral button:hover
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}
