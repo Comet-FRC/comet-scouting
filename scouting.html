@@ -7,13 +7,15 @@
     <link href="script1.js" rel="script">
   </head>
 
-
+  
   <body>
     <div id="headers" class="headers"> 
       <h1>Welcome to the COMET FRC Scouting App!</h1>
       <h2>Please enter the data from your assigned team and match number, and when you submit, ensure that you scan your qr code on the scouting laptop.</h2>
     </div>
-
+    
+    
+    <script type="application/ecmascript" src="game.js"></script>
     
     
     <div id="form"> 
@@ -26,7 +28,14 @@
       <input type="number" name="team" id="data2">
       
       <br> 
-
+      
+      <div id="game" class="game">
+        <input type="button" value="Start Game" id="starter" onclick="beginGame()">
+        
+        <div id="timer" class="timer">
+          <h2>Game Time: <span id=timerDisplay></span></h2> 
+        </div>
+      </div> 
       
       
       <label for="submit">Submit</label>
@@ -70,15 +79,6 @@
 
     </script>  
 
-    <div id="game" class="game">
-      <input type="button" value="Start Game" id="starter" onclick="beginGame()">
-      
-      <div id="timer" class="timer">
-        <h2>Game Time: <span id=timerDisplay></span></h2> 
-      </div>
-    </div> 
- 
-    <script type="application/ecmascript" src="game.js"></script>
 
   </body>
 </html>
