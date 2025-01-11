@@ -4,10 +4,7 @@
     <title>COMET FRC Scouting</title>
 
     <link href="styles.css" rel="stylesheet">
-    <link href="script1.js" rel="script">
   </head>
-
-  
   <body>
     <div id="headers" class="headers"> 
       <h1>Welcome to the COMET FRC Scouting App!</h1>
@@ -19,25 +16,31 @@
     
     
     <div id="form"> 
-      <label for="data1">Match Number:</label>
-      <input type="number" name="match" id="data1"> 
+      <div id="match-num">
+        <label for="data1">Match Number:</label>
+        <input type="number" name="match" id="data1"> 
+      </div>
       
-      <br>
-      
-      <label for="data2">Team Number:</label> 
-      <input type="number" name="team" id="data2">
-      
-      <br> 
-      
-      <div id="game" class="game">
+      <div id="team-num">
+        <label for="data2">Team Number:</label> 
+        <input type="number" name="team" id="data2">
+      </div>
+
+      <section id="game" class="game">
         <input type="button" value="Start Game" id="starter" onclick="beginGame()">
         
         <div id="timer" class="timer">
           <h2>Game Time: <span id=timerDisplay></span></h2> 
         </div>
-      </div> 
-      
-      
+        
+        <div id="coral">
+          <button>L4</button>
+          <button>L3</button>
+          <button>L2</button>
+          <button>L1</button>
+        </div>
+
+      </section> 
       <label for="submit">Submit</label>
       <input type="button" name="submit" id="submit" value="Generate Code" onclick="generateCode()">
     </div>
