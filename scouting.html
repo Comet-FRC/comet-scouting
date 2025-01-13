@@ -16,13 +16,13 @@
     
     <div id="form"> 
       <div id="match-num">
-        <label for="data1">Match Number:</label>
-        <input type="number" name="match" id="data1"> 
+        <label for="match">Match Number:</label>
+        <input type="number" name="match" id="match"> 
       </div>
       
       <div id="team-num">
-        <label for="data2">Team Number:</label> 
-        <input type="number" name="team" id="data2">
+        <label for="team">Team Number:</label> 
+        <input type="number" name="team" id="team">
       </div>
       
       <section id="game" class="game">
@@ -31,13 +31,16 @@
         <div id="timer" class="timer">
           <h2>Game Time: <span id=timerDisplay></span></h2> 
         </div>
-        
-        <div id="coral">
-          <button>L4</button>
-          <button>L3</button>
-          <button>L2</button>
-          <button>L1</button>
+
+        <div id="game-buttons">
+          <div id="coral">
+            <button id="l4">L4</button>
+            <button id="l3">L3</button>
+            <button id="l2">L2</button>
+            <button id="l1">L1</button>
+          </div>
         </div>
+        
         
       </section> 
       <label for="submit">Submit</label>

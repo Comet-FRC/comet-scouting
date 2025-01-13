@@ -14,22 +14,30 @@ var qrCode = new QRCode(document.getElementById("qrcode"), {
 // generates, stores, and displays a qr code that reflects the current data
 function generateCode() {
   
-  // create a string to store the form data
-  var codeText = "";
+  // create a string code that represents the form data
+  getFormData();
   
-  // store the form data
-  for (let i = 1; i < 3; i++) {
-    var temp = document.getElementById("data" + i).value;
-    
-    codeText += temp + " ";
-  }
-  
-  // store the form data 
+  // store the code created with the form data
   codes.push(codeText)
   
   // set the current form displayed to the most recently created one
   codeNumber = codes.length - 1;
   showCurrentCode();
+  
+  // clear the current code text
+  codeText = "";
+}
+
+function getFormData() {
+  let temp = parseInt(document.getElementById("match").value);
+  
+  let hexString = convert(temp, 1);
+  codeText += hexString;
+
+  temp = parseInt(document.getElementById("team").value);
+
+  hexString = convert(temp, 2);
+  codeText += hexString;
 }
 
 // displays the stored qr code of the given number on the page
@@ -42,7 +50,34 @@ function showCurrentCode() {
   qrCode.makeCode(codes[codeNumber]);
 }
 
-// create event listeners
+function convert(convertNum, minLength) {
+  // ensure that the value passed is an integer
+  convertNum = parseInt(convertNum);
+
+  // create a place to store the converted value
+  let basedString = "";
+
+  // create an array to pull values from 
+  const base128Chars = Array.from({ length: 128 }, (_, i) => String.fromCharCode(i));
+
+  // handle zero
+  if (convertNum == 0 || convertNum == NaN) 
+      return '\0';
+
+  // convert number into base 128
+  while (convertNum > 0) {
+      basedString = base128Chars[convertNum % 128] + basedString;
+      
+      convertNum = Math.floor(convertNum / 128);
+  }   
+
+  // add leading 'zeroes' if length is less than minLength
+  while (basedString.length < minLength) {
+      basedString = "\0" + basedString;
+  }
+
+  return basedString;
+}
 
 // submit button
 document.getElementById("submit").addEventListener("click", function () {
@@ -51,7 +86,7 @@ document.getElementById("submit").addEventListener("click", function () {
   
   // show the code
   document.getElementById("qrcode").style.visibility = "visible";
-
+  
   // display the previous button if needed
   if (codeNumber != 0) 
     document.getElementById("previous").style.visibility = "visible";
@@ -62,13 +97,13 @@ document.getElementById("submit").addEventListener("click", function () {
 document.getElementById("previous").addEventListener("click", function () {
   // go back one code in the list
   codeNumber--;
-
+  
   // regenerate the current code
   showCurrentCode();
-
+  
   // make the next button visible
   document.getElementById("next").style.visibility = "visible";
-
+  
   // check if previous should remain visible
   if (codeNumber == 0) {
     document.getElementById("previous").style.visibility = "hidden";
@@ -79,13 +114,13 @@ document.getElementById("previous").addEventListener("click", function () {
 document.getElementById("next").addEventListener("click", function () {
   // go forward one code in the list
   codeNumber++;
-
+  
   // regenerate the current code
   showCurrentCode();
-
+  
   // make the previous button visible
   document.getElementById("previous").style.visibility = "visible";
-
+  
   // check if next should remain visible
   if (codeNumber == codes.length - 1) {
     document.getElementById("next").style.visibility = "hidden";
