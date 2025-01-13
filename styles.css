@@ -15,10 +15,6 @@ body {
     color: black;
 }
 
-input {
-    color:black;
-}
-
 .timer {
     visibility:hidden;
 }
