@@ -1,6 +1,6 @@
 var gameTimer = 0.0;
 var endTime = 15000;
-var gameEnded = false;
+var gameEnded = true;
 
 var started = true;
 
@@ -8,7 +8,6 @@ function beginGame() {
     // change the start button to the end button
     var startButton = document.getElementById("starter");
     startButton.value = "End Game";
-    startButton.onclick = function() { endGame() };
 
     // make the timer visible
     var timer = document.getElementById("timer");
@@ -30,7 +29,6 @@ function endGame() {
     // change the end button to the start button
     var startButton = document.getElementById("starter");
     startButton.value = "Start Game";
-    startButton.onclick = function() { beginGame() };
 
     // stop the timer from counting up
     gameEnded = true;
@@ -49,3 +47,8 @@ function updateTimer() {
         setTimeout(function() { updateTimer() }, 10);
     }
 }
+
+document.getElementById("starter").addEventListener("click", function () {
+    if (gameEnded) beginGame();
+    else endGame();
+})

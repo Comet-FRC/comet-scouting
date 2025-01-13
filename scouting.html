@@ -12,7 +12,6 @@
     </div>
     
     
-    <script type="application/ecmascript" src="game.js"></script>
     
     
     <div id="form"> 
@@ -25,9 +24,9 @@
         <label for="data2">Team Number:</label> 
         <input type="number" name="team" id="data2">
       </div>
-
+      
       <section id="game" class="game">
-        <input type="button" value="Start Game" id="starter" onclick="beginGame()">
+        <input type="button" value="Start Game" id="starter">
         
         <div id="timer" class="timer">
           <h2>Game Time: <span id=timerDisplay></span></h2> 
@@ -39,10 +38,13 @@
           <button>L2</button>
           <button>L1</button>
         </div>
-
+        
       </section> 
       <label for="submit">Submit</label>
-      <input type="button" name="submit" id="submit" value="Generate Code" onclick="generateCode()">
+      <input type="button" name="submit" id="submit" value="Generate Code">
+      
+      
+      <script type="application/ecmascript" src="game.js"></script>
     </div>
     
     <br>
