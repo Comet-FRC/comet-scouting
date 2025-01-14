@@ -15,8 +15,12 @@ body {
     color: black;
 }
 
-.timer {
-    visibility:hidden;
+#timer {
+    text-align: center;
+}
+
+#game-buttons {
+    display:flex;
 }
 
 #coral
@@ -43,6 +47,18 @@ body {
 #coral button:hover
 {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+#algae {
+    width:20rem;
+    height:19rem;
+    display:flex;
+    flex-direction:column;
+}
+
+#algae button {
+    flex-grow: 1;
+    font-weight: bold;
 }
 
 #codes {

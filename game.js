@@ -36,7 +36,7 @@ function appendEvent(eventType) {
   codeText += eventType;
 
   // add the current time of the event
-  codeText += convert(gameTimer);
+  codeText += convert(gameTimer, 2);
 }
 
 function endGame() {
@@ -81,3 +81,14 @@ for (let i = 1; i <= 4; i++) {
     }
   });
 }
+
+// algae buttons
+document.getElementById("processor").addEventListener("click", function () {
+  if (!gameEnded) 
+    appendEvent('p');
+});
+
+document.getElementById("net").addEventListener("click", function () {
+  if (!gameEnded) 
+    appendEvent('n');
+});

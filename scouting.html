@@ -29,15 +29,36 @@
         <input type="button" value="Start Game" id="starter">
         
         <div id="timer" class="timer">
-          <h2>Game Time: <span id=timerDisplay></span></h2> 
+          <h2>Game Time: <span id=timerDisplay>0</span></h2> 
         </div>
 
         <div id="game-buttons">
-          <div id="coral">
+          <div id="coral" class="coral">
             <button id="l4">L4</button>
             <button id="l3">L3</button>
             <button id="l2">L2</button>
             <button id="l1">L1</button>
+          </div>
+          <br>
+          <div id="algae" class="algae">
+            <button id="processor">Processor</button>
+            <button id="net">Net</button>
+          </div>
+        </div>
+
+        <div id="endgame-buttons">
+          <div id="end-position">
+            <label for="position-select">End Position:</label>
+            <select id="position-select">
+              <option value="None">None</option>
+              <option value="deep">Deep Climb</option>
+              <option value="shallow">Shallow Climb</option>
+              <option value="park">Park</option>
+            </select>
+          </div>
+
+          <div id="tags">
+            
           </div>
         </div>
         
@@ -49,9 +70,6 @@
       
       <script type="application/ecmascript" src="game.js"></script>
     </div>
-    
-    <br>
-
     <div class="codes" id="codes">
       <div id="qrcode"></div>      
       
