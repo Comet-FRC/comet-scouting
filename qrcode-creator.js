@@ -29,15 +29,15 @@ function generateCode() {
 }
 
 function getFormData() {
-  let temp = parseInt(document.getElementById("match").value);
+  let temp = parseInt(document.getElementById("team").value);
   
   let hexString = convert(temp, 1);
-  codeText += hexString;
+  codeText = hexString + codeText;
 
-  temp = parseInt(document.getElementById("team").value);
+  temp = parseInt(document.getElementById("match").value);
 
   hexString = convert(temp, 2);
-  codeText += hexString;
+  codeText = hexString + codeText;
 }
 
 // displays the stored qr code of the given number on the page
