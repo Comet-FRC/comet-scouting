@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: "Agency FB Bold";
     src: url("fonts/AgencyFB-Bold.ttf");
@@ -17,6 +19,7 @@ body {
 
 #timer {
     text-align: center;
+
 }
 
 #game-buttons {
@@ -35,6 +38,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }    
+
+
 
 #coral button
 {
@@ -63,11 +68,12 @@ body {
 
 #tag-select {
     width:100px;
-    text-align:left;
-    box-sizing:border
+    display:none;
 }
 
 #tag-select img {
+    align-self:end;
+    right:0px;
     height:10px;
     width:auto;
 }
