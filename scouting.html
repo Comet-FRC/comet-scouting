@@ -1,100 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>COMET FRC Scouting</title>
-
-    <link href="styles.css" rel="stylesheet">
-  </head>
-  <body>
-    <section id="headers" class="headers"> 
-      <h1>Welcome to the COMET FRC Scouting App!</h1>
-      <h2>Please enter the data from your assigned team and match number, and when you submit, ensure that you scan your qr code on the scouting laptop.</h2>
-    </section>
+<head>
+  <title>COMET FRC Scouting</title>
+  
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <section id="headers" class="headers"> 
+    <h1>Welcome to the COMET FRC Scouting App!</h1>
+    <h2>Please enter the data from your assigned team and match number, and when you submit, ensure that you scan your qr code on the scouting laptop.</h2>
+  </section>
+  
+  <div id="form"> 
+    <div id="match-num">
+      <label for="match">Match Number:</label>
+      <input type="number" name="match" id="match"> 
+    </div>
     
-    <div id="form"> 
-      <div id="match-num">
-        <label for="match">Match Number:</label>
-        <input type="number" name="match" id="match"> 
+    <div id="team-num">
+      <label for="team">Team Number:</label> 
+      <input type="number" name="team" id="team">
+    </div>
+    
+    <section id="game" class="game">
+      <input type="button" value="Start Game" id="starter">
+      
+      <div id="timer" class="timer">
+        <h2>Game Time: <span id=timerDisplay>0</span></h2> 
       </div>
       
-      <div id="team-num">
-        <label for="team">Team Number:</label> 
-        <input type="number" name="team" id="team">
-      </div>
-      
-      <section id="game" class="game">
-        <input type="button" value="Start Game" id="starter">
-        
-        <div id="timer" class="timer">
-          <h2>Game Time: <span id=timerDisplay>0</span></h2> 
+      <section id="game-buttons">
+        <!--TODO: Crop background image into sections where each level has its own, then implement responsive coral depending on + or - buttons-->
+        <div id="coral">
+          <div class="level">
+            <button>-</button>
+            <p>L4</p>
+            <button id="l4">+</button>
+          </div>
+          <div class="level">
+            <button>-</button>
+            <p>L3</p>
+            <button id="l3">+</button>
+          </div>
+          <div class="level">
+            <button>-</button>
+            <p>L2</p>
+            <button id="l2">+</button>
+          </div>
+          <div class="level">
+            <button>-</button>
+            <p>L1</p>
+            <button id="l1">+</button>
+          </div>
         </div>
-
-        <section id="game-buttons">
-          <!--TODO: Crop background image into sections where each level has its own, then implement responsive coral depending on + or - buttons-->
-          <div id="coral">
-            <div class="level">
-              <button>-</button>
-              <p>L4</p>
-              <button id="l4">+</button>
-            </div>
-            <div class="level">
-              <button>-</button>
-              <p>L3</p>
-              <button id="l3">+</button>
-            </div>
-            <div class="level">
-              <button>-</button>
-              <p>L2</p>
-              <button id="l2">+</button>
-            </div>
-            <div class="level">
-              <button>-</button>
-              <p>L1</p>
-              <button id="l1">+</button>
-            </div>
-          </div>
-          <br>
-          <div id="algae" class="algae">
-            <button id="processor">Processor</button>
-            <button id="net">Net</button>
-          </div>
-        </section>
-
-        <section id="endgame-buttons">
-          <div id="end-position">
-            <label for="position-select">End Position:</label>
-            <select id="position-select">
-              <option value="None">None</option>
-              <option value="deep">Deep Climb</option>
-              <option value="shallow">Shallow Climb</option>
-              <option value="park">Park</option>
-            </select>
-          </div>
-
-          <div id="tags">
-            <label for="tag-select">Tags:</label>
+        <br>
+        <div id="algae" class="algae">
+          <button id="processor">Processor</button>
+          <button id="net">Net</button>
+        </div>
+      </section>
+      
+      <section id="endgame-buttons">
+        <div id="end-position">
+          <label for="position-select">End Position:</label>
+          <select id="position-select">
+            <option value="none">None</option>
+            <option value="deep">Deep Climb</option>
+            <option value="shallow">Shallow Climb</option>
+            <option value="park">Park</option>
+          </select>
+        </div>
+        
+        <div id="tags">
+          <label for="tag-select">Tags:</label>
+          <div id="tag-button">
             <button id="tag-select">
               <span>None</span>
               <img src="images/expand.png" id="expand">
             </button>
+            <select id="tag-options" style="position:absolute; border:0px; width:1px; height:1px; margin:-1px; padding:0px;">
+              <option aria-hidden="true">Something</option>
+              <option aria-hidden="true">Something else</option>
+            </select>
           </div>
-        </section>
-        
-        
-      </section> 
-      <label for="submit">Submit</label>
-      <input type="button" name="submit" id="submit" value="Generate Code">
+        </div>
+      </section>
       
-      <script type="application/ecmascript" src="game.js"></script>
-    </div>
-    <div class="codes" id="codes">
-      <div id="qrcode"></div>      
       
-      <button id="previous">Previous</button>
-      <button id="next">Next</button>
-    </div>
+    </section> 
+    <label for="submit">Submit</label>
+    <input type="button" name="submit" id="submit" value="Generate Code">
     
-    <script type="application/ecmascript" src="qrcode.js"></script>
-    <script type="application/ecmascript" src="qrcode-creator.js"></script>  
-  </body>
+    <script type="application/ecmascript" src="game.js"></script>
+  </div>
+  <div class="codes" id="codes">
+    <div id="qrcode"></div>      
+    
+    <button id="previous">Previous</button>
+    <button id="next">Next</button>
+  </div>
+  
+  <script type="application/ecmascript" src="qrcode.js"></script>
+  <script type="application/ecmascript" src="qrcode-creator.js"></script>  
+</body>
 </html>
