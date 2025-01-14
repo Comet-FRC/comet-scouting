@@ -1,5 +1,14 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+}
 
-
+:root
+{
+    --background-color: #877DAD;
+    --accent: rgb(226, 0, 226);
+}
 @font-face {
     font-family: "Agency FB Bold";
     src: url("fonts/AgencyFB-Bold.ttf");
@@ -8,13 +17,19 @@
 html {
     width: auto;
     height: auto;
-    background-color:#877DAD
+    background-color: var(--background-color);
 }
 
 body {
-    background-color: #877DAD;
+    background-color: var(--background-color);
     font-family: "Agency FB Bold";
     color: black;
+    margin: 0.5rem;
+}
+
+.headers h1, .headers h2
+{
+    margin: 0 0 1rem;
 }
 
 #timer {
@@ -39,19 +54,45 @@ body {
     background-position: center;
 }    
 
-
-
-#coral button
+.level
 {
     background-color: rgba(0, 0, 0, 0);
     flex-grow: 1;
-    color: rgb(226, 0, 226);
+    color: var(--accent);
     font-weight: bold;
+    font-size: 1.1;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-#coral button:hover
+.level:hover
 {
     background-color: rgba(0, 0, 0, 0.1);
+    border: solid 1px black;
+    font-size: 1.4rem;
+    transition: font-size 0.4s ease;
+}
+
+.level button
+{
+    font-size: 1.2rem;
+    border-radius: 10%;
+    background-color: var(--accent);
+    border: solid 1px black;
+    color: white;
+    transition: all 0.2s ease;
+    padding: 0.2rem 0.5rem;
+}
+
+.level button:hover
+{
+    background-color: white;
+    color: var(--accent);
+    scale: 105%;
+    font-size: 1.3rem;
 }
 
 #algae {
