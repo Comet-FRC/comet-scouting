@@ -107,14 +107,18 @@ body {
     font-weight: bold;
 }
 
-#tag-select {
-    width:100px;
-    display:none;
+#tags {
+    display:flex;
 }
 
-#tag-select img {
-    align-self:end;
-    right:0px;
+
+#tag-select {
+    background-color: white;
+    border: solid 1px grey;
+    width:100px;
+}
+
+#tag-select img {    
     height:10px;
     width:auto;
 }
