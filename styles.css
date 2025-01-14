@@ -115,12 +115,21 @@ body {
 #tag-select {
     background-color: white;
     border: solid 1px grey;
-    width:100px;
+    width: 100px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tag-select span
+{
+    padding-left: 5px; 
 }
 
 #tag-select img {    
     height:10px;
-    width:auto;
+    padding-right: 5px;
 }
 
 #codes {
