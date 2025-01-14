@@ -77,6 +77,8 @@ document.getElementById("starter").addEventListener("click", function () {
 for (let i = 1; i <= 4; i++) {
   document.getElementById("l" + i).addEventListener("click", function() {
     if (!gameEnded) {
+      score = document.getElementById("l" + i + "-score");
+      score.innerText = parseInt(score.innerText) + 1;
       appendEvent(i);
     }
   });
