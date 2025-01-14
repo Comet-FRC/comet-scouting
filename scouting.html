@@ -6,13 +6,10 @@
     <link href="styles.css" rel="stylesheet">
   </head>
   <body>
-    <div id="headers" class="headers"> 
+    <section id="headers" class="headers"> 
       <h1>Welcome to the COMET FRC Scouting App!</h1>
       <h2>Please enter the data from your assigned team and match number, and when you submit, ensure that you scan your qr code on the scouting laptop.</h2>
-    </div>
-    
-    
-    
+    </section>
     
     <div id="form"> 
       <div id="match-num">
@@ -32,21 +29,38 @@
           <h2>Game Time: <span id=timerDisplay>0</span></h2> 
         </div>
 
-        <div id="game-buttons">
-          <div id="coral" class="coral">
-            <button id="l4">L4</button>
-            <button id="l3">L3</button>
-            <button id="l2">L2</button>
-            <button id="l1">L1</button>
+        <section id="game-buttons">
+          <!--TODO: Crop background image into sections where each level has its own, then implement responsive coral depending on + or - buttons-->
+          <div id="coral">
+            <div class="level">
+              <button>-</button>
+              <p>L4</p>
+              <button id="l4">+</button>
+            </div>
+            <div class="level">
+              <button>-</button>
+              <p>L3</p>
+              <button id="l3">+</button>
+            </div>
+            <div class="level">
+              <button>-</button>
+              <p>L2</p>
+              <button id="l2">+</button>
+            </div>
+            <div class="level">
+              <button>-</button>
+              <p>L1</p>
+              <button id="l1">+</button>
+            </div>
           </div>
           <br>
           <div id="algae" class="algae">
             <button id="processor">Processor</button>
             <button id="net">Net</button>
           </div>
-        </div>
+        </section>
 
-        <div id="endgame-buttons">
+        <section id="endgame-buttons">
           <div id="end-position">
             <label for="position-select">End Position:</label>
             <select id="position-select">
@@ -61,13 +75,12 @@
             <label for="tag-select">Tags:</label>
             <button id="tag-select">None <img src="images/expand.png"></button>
           </div>
-        </div>
+        </section>
         
         
       </section> 
       <label for="submit">Submit</label>
       <input type="button" name="submit" id="submit" value="Generate Code">
-      
       
       <script type="application/ecmascript" src="game.js"></script>
     </div>
@@ -78,11 +91,7 @@
       <button id="next">Next</button>
     </div>
     
-    
-
     <script type="application/ecmascript" src="qrcode.js"></script>
-
     <script type="application/ecmascript" src="qrcode-creator.js"></script>  
-
   </body>
 </html>
