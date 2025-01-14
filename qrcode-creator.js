@@ -28,14 +28,19 @@ function generateCode() {
   codeText = "";
 }
 
+// stores the prematch and endgame data into the current code
 function getFormData() {
+  // get the team value
   let temp = parseInt(document.getElementById("team").value);
   
+  // store the team value
   let hexString = convert(temp, 1);
   codeText = hexString + codeText;
 
+  // get the match value
   temp = parseInt(document.getElementById("match").value);
 
+  // store the match value
   hexString = convert(temp, 2);
   codeText = hexString + codeText;
 }
