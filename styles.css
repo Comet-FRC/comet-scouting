@@ -150,14 +150,14 @@ select {
 
 .b1
 {
-    background-color: white;
+    background-color: var(--accent);
     padding: 0.5rem;
-    color: var(--accent);
+    color: white;
     transition: background-color 0.3s ease, color 0.3s ease;
     margin: 1rem 0;
 }
 .b1:hover
 {
-    background-color: var(--accent);
-    color: white;
+    background-color: white;
+    color: var(--accent);
 }
