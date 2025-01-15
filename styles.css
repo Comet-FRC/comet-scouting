@@ -8,7 +8,10 @@
 {
     --background-color: #877DAD;
     --accent: rgb(226, 0, 226);
+
+    --tags-width:120%;
 }
+
 @font-face {
     font-family: "Agency FB Bold";
     src: url("fonts/AgencyFB-Bold.ttf");
@@ -123,8 +126,10 @@ body {
 #tag-select {
     background-color: white;
     border: solid 1px grey;
-    width: 100px;
-    
+    width:100%;
+
+    margin:0.15rem;
+    margin-bottom:0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -132,12 +137,12 @@ body {
 
 #tag-select span
 {
-    padding-left: 5px; 
+    padding-left: 0.25rem; 
 }
 
 #tag-select img {    
-    height:10px;
-    padding-right: 5px;
+    height:0.5rem;
+    padding-right: 0.25rem;
 }
 
 select {
@@ -160,4 +165,8 @@ select {
 {
     background-color: white;
     color: var(--accent);
+}
+
+.tagged::after {
+    content:" ✔"
 }
