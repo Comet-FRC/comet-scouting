@@ -41,11 +41,12 @@ PIT SCOUTING?
 		- It would definitely help us out if we had data about the other teams
 
 GAMEIFICATION
-	- SCOUT LEADERBOARD
-		- measure # of events reported on front end
-		- person with most events reported ranks highest!
 	- CELEBRATIONS PROGRESSION BASED ON # FORMS SUBMITTED
 		- More forms = better, higher-ranked visual CELEBRATIONS
-	- BETTING
-		- button visible before start game and after end game
+	- SCOUT POINTS SYSTEM
+		- awarded Scout Points for each event reported
+		- scout points calculated on main application (not sent through QR Code)
+		- bet scout points on alliance you believe will win before game start (input visible before start game and after end game)
+		- winner gets a giftcard
+		- overall scout leaderboard (motivation through competition)
 	
