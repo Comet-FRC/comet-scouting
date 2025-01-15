@@ -79,14 +79,16 @@
           <label for="tag-select">Tags:</label>
           <div id="tag-button">
             <button id="tag-select">
-              <span>None</span>
+              <span id="selected-tags">None</span>
               <img src="images/expand.png" id="expand">
             </button>
-            <select id="tag-options" style="position:absolute; border:0px; width:1px; height:1px; margin:-1px; padding:0px;">
-              <option aria-hidden="true">Something</option>
-              <option aria-hidden="true">Something else</option>
+            <select id="tag-options" hidden="true" style="width:100px">
+              <option value="someting">Something</option>
+              <option value="someting ewse">Something else</option>
             </select>
           </div>
+
+          <script type="application/ecmascript" src="form.js"></script>
         </div>
       </section>
       

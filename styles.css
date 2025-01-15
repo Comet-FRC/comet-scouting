@@ -120,7 +120,6 @@ body {
     display:flex;
 }
 
-
 #tag-select {
     background-color: white;
     border: solid 1px grey;
@@ -139,6 +138,10 @@ body {
 #tag-select img {    
     height:10px;
     padding-right: 5px;
+}
+
+select {
+    overflow-y:auto;
 }
 
 #codes {
