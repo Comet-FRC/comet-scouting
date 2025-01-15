@@ -12,6 +12,6 @@ document.getElementById("tag-select").addEventListener("click", function () {
   tagSelect.addEventListener("click", function () {
     
     var tagDisplay = document.getElementById("selected-tags");
-    tagDisplay.innerText += parseInt()
+    tagDisplay.innerText += (tagSelect.value + " ");
   });
 });
