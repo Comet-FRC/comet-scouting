@@ -21,6 +21,8 @@ COMMUNICATION WITH DRIVE TEAM
 		- Portable printer to print out data and physically hand it to the drive team?
 	- Sean and the drive team should also be a part of the alliance selection process
 		- Sean could be the one who actually does alliance selection? 
+	- we could do a discord bot anyway just to share info even tho not everyone would have access
+	- or not even a discord bot, maybe just a script that summarizes information into a .txt and we can just send into discord and print the .txt
 
 DATA COLLECTED 
 	- Amount of coral scored and levels that they are on
