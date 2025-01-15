@@ -39,3 +39,14 @@ PIT SCOUTING?
 	- Should we add capability to scout teams in the pits, prior to competition? 
 		- Possible fields might be Drivetrain type, Robot weight, Motor type, Vision Capabilities, Number of Motors, Drivers' experience, Autos, Scoring capabilites, intake locations
 		- It would definitely help us out if we had data about the other teams
+
+GAMEIFICATION
+	- CELEBRATIONS PROGRESSION BASED ON # FORMS SUBMITTED
+		- More forms = better, higher-ranked visual CELEBRATIONS
+	- SCOUT POINTS SYSTEM
+		- awarded Scout Points for each event reported
+		- scout points calculated on main application (not sent through QR Code)
+		- bet scout points on alliance you believe will win before game start (input visible before start game and after end game)
+		- winner gets a giftcard
+		- overall scout leaderboard (motivation through competition)
+	
