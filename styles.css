@@ -147,3 +147,17 @@ select {
 #codes {
     visibility: hidden;
 }
+
+.b1
+{
+    background-color: white;
+    padding: 1rem;
+    color: var(--accent);
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+.b1:hover
+{
+    background-color: var(--accent);
+    color: white;
+}
