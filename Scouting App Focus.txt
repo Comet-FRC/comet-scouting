@@ -42,8 +42,10 @@ PIT SCOUTING?
 
 GAMEIFICATION
 	- SCOUT LEADERBOARD
-		- measure # of events submitted on front end
-		- person with most events submitted ranks highest!
+		- measure # of events reported on front end
+		- person with most events reported ranks highest!
 	- CELEBRATIONS PROGRESSION BASED ON # FORMS SUBMITTED
 		- More forms = better, higher-ranked visual CELEBRATIONS
+	- BETTING
+		- button visible before start game and after end game
 	
