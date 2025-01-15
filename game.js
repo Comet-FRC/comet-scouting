@@ -19,6 +19,11 @@ function beginGame() {
   var timerDisplay = document.getElementById("timerDisplay");
   timerDisplay.innerText = 0;
 
+  // make coral points start at 0
+  for (let i = 1; i < 5; i++) {
+    document.getElementById("l" + i + "-score").innerText = 0;
+  }
+
   // initialize timer values
   gameTimer = 0;
   gameEnded = false;
