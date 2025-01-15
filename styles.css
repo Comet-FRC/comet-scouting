@@ -151,9 +151,9 @@ select {
 .b1
 {
     background-color: white;
-    padding: 1rem;
+    padding: 0.5rem;
     color: var(--accent);
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     margin: 1rem 0;
 }
 .b1:hover
