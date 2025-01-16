@@ -8,7 +8,8 @@ function addTag(dropdownItem) {
   // find it
   let displays = document.getElementsByClassName("tag-display");
   for (let i = 0; i < displays.length; i++) {
-    if (displays.item(i).tag == dropdownItem.parentElement.tag) {
+    // check if the current item is the same type as the 
+    if (displays.item(i).getAttribute("type") == dropdownItem.parentElement.getAttribute("type")) {
       myDisplay = displays.item(i);
     }
   }
@@ -27,7 +28,7 @@ function removeTag(tag) {
 
   // find it
   for (let i = 0; i < dropdowns.length; i++) {
-    if (dropdowns.item(i).tag == tag.parentElement.tag) {
+    if (dropdowns.item(i).getAttribute("type") == tag.parentElement.getAttribute("type")) {
       myDropdown = dropdowns.item(i);
     }
   }
@@ -42,7 +43,7 @@ function removeTag(tag) {
 
 function showDropdown(currentButton) {
   for (let i = 0; i < dropdowns.length; i++) {
-    if (dropdowns.item(i).tag == currentButton.tag) {
+    if (dropdowns.item(i).getAttribute("type") == currentButton.getAttribute("type")) {
       dropdowns.item(i).classList.toggle("show");
     }
   }
@@ -54,14 +55,6 @@ for (let i = 0; i < document.getElementsByClassName("tag-button").length; i++) {
   let currentButton = document.getElementsByClassName("tag-button").item(i);
   currentButton.addEventListener("click", function () { showDropdown(currentButton) });
 }
-
-// // tags button 
-// document.getElementById("strength-button").addEventListener("click", function () {
-//   let strengthList = document.getElementById("strength-dropdown");
-//   strengthList.classList.toggle("show");
-// });
-
-
 
 // add event listeners to all dropdown items
 for (let i = 0; i < dropdowns.length; i++) {
