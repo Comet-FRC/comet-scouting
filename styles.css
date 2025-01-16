@@ -23,7 +23,7 @@ html {
 
 body {
     background-color: var(--background-color);
-    font-size: x-large;
+    font-size: 1.3rem;
     font-family: "Agency FB Bold";
     color: black;
     margin: 0.5rem;
@@ -62,8 +62,6 @@ body {
     flex-grow: 1;
     color: var(--accent);
     font-weight: bold;
-    font-size: 1.1;
-
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -76,7 +74,7 @@ body {
 {
     background-color: rgba(0, 0, 0, 0.1);
     border: solid 1px black;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
 }
 
 .level button
