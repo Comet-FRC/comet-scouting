@@ -76,16 +76,27 @@
         </div>
         
         <div id="tags">
-          <label for="strength-select">Tags:</label>
-          <div class="tag-select" id="strength-select">
-            <ul class="tag-display" id="strength-display"></ul>
-            <button class="tag-button" id="strength-button">+</button>
-            <ul class="tag-list" id="strength-list">
+          <label>Strengths:</label>
+          <div class="tag-select">
+            <ul class="tag-display" tag="strength"></ul>
+            <button class="tag-button" tag="strength">+</button>
+            <ul class="tag-dropdown" tag="strength">
               <li id="fr">Fast Robot</li>
               <li id="ga">Good Auton</li>
               <li id="gd">Good Driving</li>
             </ul>
           </div>
+          <label>Weaknesses:</label>
+          <div class="tag-select">
+            <ul class="tag-display" tag="weaknesses"></ul>
+            <button class="tag-button" tag="weaknesses">+</button>
+            <ul class="tag-dropdown" tag="weaknesses">
+              <li id="fr">Slow Robot</li>
+              <li id="ga">Bad Auton</li>
+              <li id="gd">Bad Driving</li>
+            </ul>
+          </div>
+
           <script type="application/ecmascript" src="form.js"></script>
         </div>
       </section>
