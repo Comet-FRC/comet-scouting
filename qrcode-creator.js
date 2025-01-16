@@ -3,11 +3,18 @@
 var codeNumber = 0;
 var codes = [];
 
-// create a placeholder qr code 
+// create a placeholder qr code
+
+let dimension = 300;
+console.log(window.innerWidth);
+if (window.innerWidth < 700) {
+  dimension = 1000;
+}
+
 
 var qrCode = new QRCode(document.getElementById("qrcode"), {
-  width:150,
-  height:150,
+  width: dimension,
+  height: dimension,
   text:""
 });
 
@@ -84,6 +91,27 @@ function convert(convertNum, minLength) {
   return basedString;
 }
 
+function enlargen() {
+  larger_qrcode = new QRCode( document.getElementById("large-qr"), {
+    width: dimension * 2,
+    height: dimension * 2,
+    text: codes[codeNumber]
+  });
+  let container = document.getElementById("large-container");
+  container.style.visibility = "visible";
+  container.style.display = "flex";
+  container.classList.add("cont");
+
+  container.addEventListener("click", function() {
+    console.log("HI");
+    container.style.visibility = "hidden";
+    container.style.display = "none";
+    container.classList.remove("cont");
+
+    document.getElementById("large-qr").innerText = "";
+  });
+}
+
 // submit button
 document.getElementById("submit").addEventListener("click", function () {
   // create the new code
@@ -130,4 +158,9 @@ document.getElementById("next").addEventListener("click", function () {
   if (codeNumber == codes.length - 1) {
     document.getElementById("next").style.visibility = "hidden";
   }
+});
+
+document.getElementById("qrcode").addEventListener("click", function () {
+  // copy the current qr code to the clipboard
+  enlargen();
 });
