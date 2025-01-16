@@ -23,6 +23,7 @@ html {
 
 body {
     background-color: var(--background-color);
+    font-size: x-large;
     font-family: "Agency FB Bold";
     color: black;
     margin: 0.5rem;
@@ -117,24 +118,26 @@ body {
     font-weight: bold;
 }
 
-#endgame-buttons div {
+#endgame-buttons {
     display:flex;
     flex-direction:column;
 }
 
 #tags {
     display:flex;
+    flex-direction:column;
 }
 
 .tag-select {
-    height:1.5rem;
-
-    position:relative;
-    display:inline-block;
-
+    height:2rem;
     margin:0.15rem; 
+
     display: inline-flex;
     flex-direction: row;
+    
+    position:relative;
+    align-items:start;
+    justify-items:start;
 }
 
 .tag-select button {
@@ -159,9 +162,26 @@ body {
 }
 
 .tag-display {
-    display:flex;
+    display:inline-flex;
     flex-direction:row;
     list-style:none;
+}
+
+.tag-display li {
+    padding:0.1rem;
+    margin:0.1rem;
+    
+    background-color:white;
+    /* TODO - Pick a font that thematically fits for tags */
+    
+
+    transition: all 0.5s ease;
+}
+
+.tag-display li:hover {
+    background-color: rgb(225, 225, 225);
+
+    scale:105%;
 }
 
 .tag-dropdown {
@@ -180,7 +200,7 @@ body {
 }
 
 .tag-dropdown li:hover {
-    background-color:rgb(200, 200, 200);
+    background-color:rgb(225, 225, 225);
 }
 
 select {
@@ -203,10 +223,6 @@ select {
 {
     background-color: white;
     color: var(--accent);
-}
-
-.tagged::after {
-    content:" ✔"
 }
 
 .show {
