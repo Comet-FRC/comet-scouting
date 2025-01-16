@@ -45,6 +45,7 @@ PIT SCOUTING?
 GAMEIFICATION
 	- CELEBRATIONS PROGRESSION BASED ON # FORMS SUBMITTED
 		- More forms = better, higher-ranked visual CELEBRATIONS
+		- TOGGLE FUN MODE
 	- SCOUT POINTS SYSTEM
 		- awarded Scout Points for each event reported
 		- scout points calculated on main application (not sent through QR Code)
