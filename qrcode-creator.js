@@ -160,7 +160,7 @@ document.getElementById("next").addEventListener("click", function () {
   }
 });
 
-document.getElementById("qrcode").addEventListener("click", function () {
+document.getElementById("qrcode").childNodes.item(1).addEventListener("click", function () {
   // copy the current qr code to the clipboard
   enlargen();
 });
