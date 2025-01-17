@@ -123,6 +123,11 @@ body {
     flex-direction:column;
 }
 
+#end-positions      {
+    display:flex;
+    flex-direction:column;
+}
+
 #tags {
     display:flex;
     flex-direction:column;
@@ -133,14 +138,13 @@ body {
     margin:0.15rem; 
 
     display: inline-flex;
-    flex-direction: row;
     
     position:relative;
-    align-items:start;
-    justify-items:start;
+    align-items: center;
+    justify-items: start;
 }
 
-.tag-select button {
+.tag-button  {
     font-size: 1rem;
     height: 1.5rem;
     width: 1.5rem;
@@ -155,7 +159,7 @@ body {
     transition: all 0.2s ease;
 }
 
-.tag-select button:hover {
+.tag-button:hover {
     scale: 110%;
     color: var(--accent);
     background-color: white;
@@ -168,19 +172,28 @@ body {
 }
 
 .tag-display li {
-    padding:0.1rem;
+    font-size: 1.25rem;
+
+    padding:0.1rem 0.3rem;
     margin:0.1rem;
+
+    text-align: center;
+
+    /* height:20px; */
+    /* width:100px; */
     
     background-color:white;
     /* TODO - Pick a font that thematically fits for tags */
     
-
+    border-radius: 0.75rem;
+    overflow:hidden;
+    
     transition: all 0.5s ease;
 }
 
 .tag-display li:hover {
     background-color: rgb(225, 225, 225);
-
+    
     scale:105%;
 }
 
@@ -192,6 +205,8 @@ body {
     background-color:white;
     overflow:auto;
     z-index:1;
+
+    align-self: start;
     
     font-size:1rem;
     font-style: normal;
