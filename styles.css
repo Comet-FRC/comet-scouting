@@ -186,7 +186,7 @@ body {
     border-radius: 0.75rem;
     overflow:hidden;
     
-    transition: all 0.5s ease;
+    transition: all 0.25s ease;
 }
 
 .tag-display li:hover {

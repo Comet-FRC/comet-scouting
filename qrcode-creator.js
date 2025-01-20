@@ -25,7 +25,7 @@ function generateCode() {
   getFormData();
   
   // store the code created with the form data
-  codes.push(codeText)
+  codes.push(codeText);
   
   // set the current form displayed to the most recently created one
   codeNumber = codes.length - 1;
@@ -37,19 +37,38 @@ function generateCode() {
 
 // stores the prematch and endgame data into the current code
 function getFormData() {
-  // get the team value
-  let temp = parseInt(document.getElementById("team").value);
+  // get and store the team value
+  let hexString = convert(parseInt(document.getElementById("team").value), 3);
+  codeText = hexString + codeText;
+
+  // get and store the match value
+  hexString = convert(parseInt(document.getElementById("match").value), 1);
+  codeText = hexString + codeText;
+
+  // convert the end position to to a hex string
+  switch (document.getElementById("end-position").value) {
+    case "none":
+      hexString = '0';
+      break;
+
+    case "deep":
+      hexString = '1';
+      break;
+
+    case "shallow":
+      hexString = '2';
+      break;
+
+    case "park":
+      hexString = '3';
+      break;   
+  }
+
+  // store the value
+  codeText += hexString;
+
   
-  // store the team value
-  let hexString = convert(temp, 1);
-  codeText = hexString + codeText;
 
-  // get the match value
-  temp = parseInt(document.getElementById("match").value);
-
-  // store the match value
-  hexString = convert(temp, 2);
-  codeText = hexString + codeText;
 }
 
 // displays the stored qr code of the given number on the page
@@ -62,6 +81,7 @@ function showCurrentCode() {
   qrCode.makeCode(codes[codeNumber]);
 }
 
+// converts the given number into a base 91 string of the given length
 function convert(convertNum, minLength) {
   // ensure that the value passed is an integer
   convertNum = parseInt(convertNum);
@@ -70,22 +90,23 @@ function convert(convertNum, minLength) {
   let basedString = "";
 
   // create an array to pull values from 
-  const base128Chars = Array.from({ length: 128 }, (_, i) => String.fromCharCode(i));
+  const base91Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+,./:;<=>?@[]^_`{|}~";
 
   // handle zero
   if (convertNum == 0 || convertNum == NaN) 
-      return '\0';
+      return 'A';
 
-  // convert number into base 128
+  // convert number into base 91
   while (convertNum > 0) {
-      basedString = base128Chars[convertNum % 128] + basedString;
+      basedString = base91Chars[convertNum % 91] + basedString;
       
-      convertNum = Math.floor(convertNum / 128);
+      convertNum = Math.floor(convertNum / 91);
   }   
 
   // add leading 'zeroes' if length is less than minLength
   while (basedString.length < minLength) {
-      basedString = "\0" + basedString;
+      console.log(basedString);
+      basedString = 'A' + basedString;
   }
 
   return basedString;
