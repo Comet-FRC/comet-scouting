@@ -47,7 +47,7 @@ function getFormData() {
 
   // convert the end position to to a hex string
   
-  switch (document.getElementById("end-position").value) {
+  switch (document.getElementById("position-select").options[document.getElementById("position-select").selectedIndex].value) {
     case "none":
       hexString = 'x';
       break;
@@ -68,8 +68,21 @@ function getFormData() {
   // store the value
   codeText += hexString;
 
-  
+  // get the strength display
+  var display = document.getElementById("strength-display");
 
+  // loop through the selected strengths and store them
+  for (let i = 0; i < display.childElementCount; i++) {
+    codeText += convert(parseInt(display.children[i].id), 1);
+  }
+
+  // get the weakness display
+  display = document.getElementById("weakness-display");
+
+  // loop through the selected weaknesses and store them
+  for (let i = 0; i < display.childElementCount; i++) {
+    codeText += convert(parseInt(display.children[i].id), 1);
+  }
 }
 
 // displays the stored qr code of the given number on the page
