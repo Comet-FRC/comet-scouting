@@ -46,21 +46,22 @@ function getFormData() {
   codeText = hexString + codeText;
 
   // convert the end position to to a hex string
+  
   switch (document.getElementById("end-position").value) {
     case "none":
-      hexString = '0';
+      hexString = 'x';
       break;
 
     case "deep":
-      hexString = '1';
+      hexString = 'd';
       break;
 
     case "shallow":
-      hexString = '2';
+      hexString = 's';
       break;
 
     case "park":
-      hexString = '3';
+      hexString = 'k';
       break;   
   }
 
@@ -90,7 +91,7 @@ function convert(convertNum, minLength) {
   let basedString = "";
 
   // create an array to pull values from 
-  const base91Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+,./:;<=>?@[]^_`{|}~";
+  const base91Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+,./:;<=>?@[]^_`{|}~\\";
 
   // handle zero
   if (convertNum == 0 || convertNum == NaN) 
