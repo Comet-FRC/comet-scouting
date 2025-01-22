@@ -8,7 +8,7 @@
 {
     --background-color: #877DAD;
     --accent: rgb(226, 0, 226);
-    --color-correct: rgb(162, 0, 255);
+    --color-correct: rgb(0, 255, 251);
 }
 
 @font-face {
@@ -93,7 +93,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    min-width: 175%;
+    min-width: 150%;
     height: auto;
     /* width: 20vw;
     height: 40vh; */
@@ -170,7 +170,7 @@ body {
 #algae {
     /* width:20rem;
     height:19rem; */
-    min-width: 25%;
+    min-width: 50%;
     display:flex;
     flex-direction:column;
 }
@@ -178,6 +178,13 @@ body {
 #algae button {
     flex-grow: 1;
     font-weight: bold;
+    background-color: var(--color-correct);
+    transition: all 0.1s ease;
+    font-size: 1.4rem;
+}
+#algae button:hover {
+    color: var(--color-correct);
+    background-color: var(--accent);
 }
 
 #endgame-buttons {
