@@ -135,9 +135,12 @@ body {
     border: solid 1px black;
     color: white;
     transition: all 0.2s ease;
-    padding: 0.vh 0.5vw;
+    padding: 0vh 0.5vw;
 
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
 
 .level button:hover
 {
@@ -178,13 +181,19 @@ body {
 #algae button {
     flex-grow: 1;
     font-weight: bold;
-    background-color: var(--color-correct);
-    transition: all 0.1s ease;
-    font-size: 1.4rem;
+    transition: all 0.2s ease;
+    font-size: 4vh;
+    color: black;
+
+    border: 5px solid black;
+    background-color: var(--accent);
 }
 #algae button:hover {
-    color: var(--color-correct);
-    background-color: var(--accent);
+    color: var(--accent);
+    background-color: white;
+    font-size: 5vh;
+
+    border: 1px solid black;
 }
 
 #endgame-buttons {
