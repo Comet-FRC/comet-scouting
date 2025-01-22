@@ -262,7 +262,6 @@ select {
 {
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
     background-color:rgba(0, 0, 0, 0.558)
 }
 
@@ -282,7 +281,4 @@ select {
         background-color: white;
         scale: 100%;
     }
-=======
-    background-color:rgba(255, 255, 255, 0.558)
->>>>>>> 5c3c31609c87eeba2b451a5e48671f7efd8d29a6
 }
