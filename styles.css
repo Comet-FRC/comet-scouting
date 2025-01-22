@@ -27,11 +27,49 @@ body {
     font-family: "Agency FB Bold";
     color: black;
     margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.headers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pregame {
+    scale: 150%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .headers h1, .headers h2
 {
-    margin: 0 0 1rem;
+    margin: .5rem 1rem 2rem 1rem;
+}
+
+#starter {
+    height: 4rem;
+    width: 20rem;
+
+    font-size: 2rem;
+
+    align-items: center;
+    justify-items: center;
 }
 
 #timer {
@@ -41,6 +79,11 @@ body {
 
 #game-buttons {
     display:flex;
+    justify-content: center;
+
+
+    width: 40vw;
+    height: 80vh;
 }
 
 #coral
@@ -49,8 +92,10 @@ body {
     display: flex;
     flex-direction: column;
 
-    width: 20rem;
-    height: 19rem;
+    min-width: 175%;
+    height: auto;
+    /* width: 20vw;
+    height: 40vh; */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -66,6 +111,8 @@ body {
     justify-content: space-evenly;
     align-items: center;
 
+    font-size: 4vh;
+
     position: relative;
     transition: font-size 0.3s ease, background-color 0.3s ease;
 }
@@ -74,26 +121,41 @@ body {
 {
     background-color: rgba(0, 0, 0, 0.1);
     border: solid 1px black;
-    font-size: 1.5rem;
+    font-size: 6vh;
 }
 
 .level button
 {
-    font-size: 1.2rem;
+    height: 8vh;
+    width: 8vh;
+    font-size: 6vh;
     border-radius: 10%;
     background-color: var(--accent);
     border: solid 1px black;
     color: white;
     transition: all 0.2s ease;
-    padding: 0.2rem 0.5rem;
+    padding: 0.vh 0.5vw;
+
 }
 
 .level button:hover
 {
     background-color: white;
     color: var(--accent);
-    scale: 105%;
-    font-size: 1.3rem;
+    scale: 120%;
+    font-size: 8vh;
+}
+
+@media screen and (max-width: 800px)
+{
+    #game-buttons {
+        flex-direction: column;
+
+    }
+
+    body {
+        font-size: 1000rem;
+    }
 }
 
 .num-score
@@ -105,8 +167,9 @@ body {
 }
 
 #algae {
-    width:20rem;
-    height:19rem;
+    /* width:20rem;
+    height:19rem; */
+    min-width: 25%;
     display:flex;
     flex-direction:column;
 }
