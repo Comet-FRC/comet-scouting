@@ -10,6 +10,7 @@ function beginGame() {
   // change the start button to the end button
   var startButton = document.getElementById("starter");
   startButton.value = "End Game";
+  pressChange(startButton);
 
   // make the timer visible
   var timer = document.getElementById("timer");
@@ -35,6 +36,13 @@ function beginGame() {
   
 }
 
+function pressChange(button) {
+  button.classList.add("pressed");
+  setTimeout(function() {
+    button.classList.remove("pressed");
+  }, 400);
+}
+
 // adds an event of the given type to the String used to generate the qr code
 function appendEvent(eventType) {
   // add the event type
@@ -48,6 +56,7 @@ function endGame() {
   // change the end button to the start button
   var startButton = document.getElementById("starter");
   startButton.value = "Start Game";
+  pressChange(startButton);
 
   // stop the timer from counting up
   gameEnded = true;
@@ -85,6 +94,7 @@ for (let i = 1; i <= 4; i++) {
       score = document.getElementById("l" + i + "-score");
       score.innerText = parseInt(score.innerText) + 1;
       appendEvent(i);
+      pressChange(document.getElementById("l" + i));
     }
   });
 }

@@ -8,6 +8,7 @@
 {
     --background-color: #877DAD;
     --accent: rgb(226, 0, 226);
+    --color-correct: rgb(162, 0, 255);
 }
 
 @font-face {
@@ -292,13 +293,17 @@ select {
     background-color: var(--accent);
     padding: 0.5rem;
     color: white;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.15s ease, color 0.15s ease, translate 0.1s ease-out;
     margin: 1rem 0;
+    border-radius: 10%;
+    font-size: 1.4rem;
 }
 .b1:hover
 {
     background-color: white;
     color: var(--accent);
+    translate: 0 -0.15rem;
+    scale: 101%;
 }
 
 .show {
@@ -320,5 +325,23 @@ select {
 {
     justify-content: center;
     align-items: center;
-    background-color:rgba(255, 255, 255, 0.558)
+    background-color:rgba(0, 0, 0, 0.558)
+}
+
+.pressed
+{
+    background-color: var(--color-correct);
+    animation: color-change 0.4s 1;  
+    scale: 110%;
+}
+@keyframes color-change
+{
+    from {
+        background-color: var(--color-correct);
+        scale: 110%;
+    }
+    to {
+        background-color: white;
+        scale: 100%;
+    }
 }
