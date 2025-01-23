@@ -83,7 +83,7 @@ body {
     justify-content: center;
 
 
-    width: 40vw;
+    width: 80vw;
     height: 80vh;
 }
 
@@ -93,10 +93,8 @@ body {
     display: flex;
     flex-direction: column;
 
-    min-width: 175%;
+    min-width: 75%;
     height: auto;
-    /* width: 20vw;
-    height: 40vh; */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -147,17 +145,6 @@ body {
     font-size: 8vh;
 }
 
-@media screen and (max-width: 800px)
-{
-    #game-buttons {
-        flex-direction: column;
-
-    }
-
-    body {
-        font-size: 1000rem;
-    }
-}
 
 .num-score
 {
@@ -175,20 +162,73 @@ body {
     flex-direction:column;
 }
 
+@media screen and (max-width: 800px)
+{
+    #game-buttons {
+        flex-direction: column;
+        align-items: center;
+
+        margin: 5vh;
+    }
+
+    #coral {
+        min-width: 100%;
+        min-height: 80%;
+
+        margin: 0px;
+    }
+
+    #algae {
+        min-width: 100%;
+        min-height: 20%;
+        display: inline-flex;
+        flex-direction: row;
+
+        align-items: space-evenly;
+        justify-items: center;
+    }
+
+    #algae button {
+        width: 50%;
+
+        margin: 0px;
+    }
+}
+
 #algae button {
     flex-grow: 1;
     font-weight: bold;
 }
 
 #endgame-buttons {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
+
+    width: 40vw;
+    height: 40vh;   
+
+    font-size: 6vh;
+
+    margin-bottom: 8vh;
 }
 
-#end-positions      {
-    display:flex;
-    flex-direction:column;
+#end-position {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 1vh;
 }
+
+#position-select {
+    height: 8vh;
+    
+    font-size: 5vh;
+    font-family: "Agency FB Bold";
+}
+
+/* select {
+    background-color: rgb(162, 0, 255)
+} */
 
 #tags {
     display:flex;
@@ -196,23 +236,25 @@ body {
 }
 
 .tag-select {
-    height:2rem;
-    margin:0.15rem; 
+    /* height: 8vh; */
+    /* margin: 1vh;  */
 
     display: inline-flex;
     
-    position:relative;
+    position: relative;
     align-items: center;
     justify-items: start;
 }
 
-.tag-button  {
-    font-size: 1rem;
-    height: 1.5rem;
-    width: 1.5rem;
-    
+.tag-select button  {
+    font-size: 6vh;
+    height: 8vh;
+    width: 8vh;
+
+    margin: 0.5vh;
+
     text-align:center;
-    border-radius: 10%;
+    border-radius: 15%;
 
     color:white;
     background-color:var(--accent);
@@ -234,10 +276,10 @@ body {
 }
 
 .tag-display li {
-    font-size: 1.25rem;
+    font-size: 5vh;
 
     padding:0.1rem 0.3rem;
-    margin:0.1rem;
+    margin: 0.5vh;
 
     text-align: center;
 
@@ -247,7 +289,7 @@ body {
     background-color:white;
     /* TODO - Pick a font that thematically fits for tags */
     
-    border-radius: 0.75rem;
+    border-radius: 2vh;
     overflow:hidden;
     
     transition: all 0.25s ease;
@@ -261,23 +303,31 @@ body {
 
 .tag-dropdown {
     margin:0.1rem;
-    padding:0.25rem;
+    /* padding:0.25rem; */
     display:none;
     position:absolute;
     background-color:white;
     overflow:auto;
     z-index:1;
 
+
     align-self: start;
     
-    font-size:1rem;
+    border-radius: 1vh;
+
+    font-size: 5vh;
     font-style: normal;
 
     transition: all 0.5s ease;
 }
 
+.tag-dropdown li {
+    padding: 0.5vh;
+}
+
 .tag-dropdown li:hover {
-    background-color:rgb(225, 225, 225);
+    background-color:rgb(0, 115, 225);
+    color: white;
 }
 
 select {
@@ -286,6 +336,8 @@ select {
 
 #codes {
     visibility:hidden;
+    align-items: center;
+    justify-items: center;
 }
 
 .b1
@@ -295,9 +347,10 @@ select {
     color: white;
     transition: background-color 0.15s ease, color 0.15s ease, translate 0.1s ease-out;
     margin: 1rem 0;
-    border-radius: 10%;
-    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    font-size: 6vh;
 }
+
 .b1:hover
 {
     background-color: white;
@@ -315,17 +368,19 @@ select {
     display:none;
     visibility:hidden;
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     top: 0;
     left: 0;
 }
+
+
 
 .cont
 {
     justify-content: center;
     align-items: center;
-    background-color:rgba(0, 0, 0, 0.558)
+    background-color:rgba(255, 255, 255, 0.558)
 }
 
 .pressed
@@ -334,6 +389,7 @@ select {
     animation: color-change 0.4s 1;  
     scale: 110%;
 }
+
 @keyframes color-change
 {
     from {
