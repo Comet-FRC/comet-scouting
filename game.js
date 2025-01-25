@@ -142,9 +142,10 @@ document.getElementById("processor").addEventListener("click", function () {
 });
 
 document.getElementById("net").addEventListener("click", function () {
-  if (!gameEnded) 
+  if (!gameEnded) {
     appendEvent('n');
     score = document.getElementById("n-score");
     score.innerText = parseInt(score.innerText) + 1;
-    pressChange(document.getElementById("net"))
+    pressChange(document.getElementById("net"));
+  }
 });
