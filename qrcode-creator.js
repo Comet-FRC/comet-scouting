@@ -5,11 +5,7 @@ var codes = [];
 
 // create a placeholder qr code
 
-let dimension = 300;
-console.log(window.innerWidth);
-if (window.innerWidth < 700) {
-  dimension = 1000;
-}
+let dimension = Math.min(window.innerWidth, window.innerHeight) / 3;
 
 
 var qrCode = new QRCode(document.getElementById("qrcode"), {
@@ -17,6 +13,31 @@ var qrCode = new QRCode(document.getElementById("qrcode"), {
   height: dimension,
   text:""
 });
+
+
+window.addEventListener("resize", function() {
+  if (dimension != Math.min(window.innerWidth, window.innerHeight) / 3) {
+    dimension = Math.min(window.innerWidth, window.innerHeight) / 3;
+    
+    // remove the previous qr code
+    document.getElementById("qrcode").innerText = "";
+  
+    // check if there is a qr code to display
+    if (codes.length != 0) {
+      // create a new qr code with the updated dimensions
+      qrCode = new QRCode(document.getElementById("qrcode"), {
+        width: dimension,
+        height: dimension,
+        text: codes[codeNumber]
+      });
+    }
+
+    document.getElementById("qrcode").childNodes.item(1).addEventListener("click", function () {
+      // copy the current qr code to the clipboard
+      enlargen();
+    });
+  }
+})
 
 // generates, stores, and displays a qr code that reflects the current data
 function generateCode() {
