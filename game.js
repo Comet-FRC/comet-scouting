@@ -24,7 +24,10 @@ function beginGame() {
   for (let i = 1; i < 5; i++) {
     document.getElementById("l" + i + "-score").innerText = 0;
   }
-  
+
+  document.getElementById("p-score").innerText = 0;
+  document.getElementById("n-score").innerText = 0;
+
   // initialize timer values
   gameTimer = 0;
   gameEnded = false;
@@ -43,7 +46,7 @@ function pressChange(button) {
     button.classList.add(str);
     setTimeout(function() {
       button.classList.remove(str);
-    }, 150);
+    }, 100);
 }
 
 // adds an event of the given type to the String used to generate the qr code
@@ -139,9 +142,10 @@ document.getElementById("processor").addEventListener("click", function () {
 });
 
 document.getElementById("net").addEventListener("click", function () {
-  if (!gameEnded) 
+  if (!gameEnded) {
     appendEvent('n');
     score = document.getElementById("n-score");
     score.innerText = parseInt(score.innerText) + 1;
-    pressChange(document.getElementById("net"))
+    pressChange(document.getElementById("net"));
+  }
 });
