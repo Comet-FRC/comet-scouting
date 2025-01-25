@@ -37,10 +37,13 @@ function beginGame() {
 }
 
 function pressChange(button) {
-  button.classList.add("pressed");
-  setTimeout(function() {
-    button.classList.remove("pressed");
-  }, 100);
+    let str = "pressed";
+    if (Array.from(document.getElementById("algae").children).includes(button))
+      str = "pressed-algae";
+    button.classList.add(str);
+    setTimeout(function() {
+      button.classList.remove(str);
+    }, 150);
 }
 
 // adds an event of the given type to the String used to generate the qr code
@@ -94,18 +97,25 @@ for (let i = 1; i <= 4; i++) {
       score = document.getElementById("l" + i + "-score");
       score.innerText = parseInt(score.innerText) + 1;
       appendEvent(i);
-      pressChange(document.getElementById("l" + i));
+      pressChange(document.getElementById("l" + i)); // color change
     }
   });
 }
 
 // algae buttons
 document.getElementById("processor").addEventListener("click", function () {
-  if (!gameEnded) 
+  if (!gameEnded) {
     appendEvent('p');
+    score = document.getElementById("p-score");
+    score.innerText = parseInt(score.innerText) + 1;
+    pressChange(document.getElementById("processor"));
+  }
 });
 
 document.getElementById("net").addEventListener("click", function () {
   if (!gameEnded) 
     appendEvent('n');
+    score = document.getElementById("n-score");
+    score.innerText = parseInt(score.innerText) + 1;
+    pressChange(document.getElementById("net"))
 });
