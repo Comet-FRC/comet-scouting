@@ -184,12 +184,15 @@ body {
         display: inline-flex;
         flex-direction: row;
 
+        margin: 0px;
+
         align-items: space-evenly;
         justify-items: center;
     }
 
     #algae button {
         width: 50%;
+        height: 100%;
 
         margin: 0px;
     }
@@ -239,11 +242,13 @@ body {
     /* height: 8vh; */
     /* margin: 1vh;  */
 
-    display: inline-flex;
+    display: inline;
     
     position: relative;
     align-items: center;
     justify-items: start;
+
+    overflow: visible;
 }
 
 .tag-select button  {
@@ -270,9 +275,11 @@ body {
 }
 
 .tag-display {
-    display:inline-flex;
-    flex-direction:row;
+    display: inline-flex;
+    flex-direction: row;
     list-style:none;
+
+    overflow: visible;
 }
 
 .tag-display li {
@@ -283,14 +290,14 @@ body {
 
     text-align: center;
 
-    /* height:20px; */
+    height: 6vh;
     /* width:100px; */
     
     background-color:white;
     /* TODO - Pick a font that thematically fits for tags */
     
     border-radius: 2vh;
-    overflow:hidden;
+    overflow: visible;
     
     transition: all 0.25s ease;
 }
