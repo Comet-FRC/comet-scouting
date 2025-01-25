@@ -1,0 +1,15 @@
+CACHE MANIFEST
+
+CACHE: 
+ scouting.html
+ cache.manifest
+ styles.css
+ fonts/AgencyFB-Bold.ttf
+ form.js
+ game.js
+ qrcode-creator.js
+ qrcode.js
+ images/coral.png
+
+FALLBACK:
+ offline.html
