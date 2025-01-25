@@ -19,23 +19,8 @@ window.addEventListener("resize", function() {
   if (dimension != Math.min(window.innerWidth, window.innerHeight) / 3) {
     dimension = Math.min(window.innerWidth, window.innerHeight) / 3;
     
-    // remove the previous qr code
-    document.getElementById("qrcode").innerText = "";
-  
-    // check if there is a qr code to display
-    if (codes.length != 0) {
-      // create a new qr code with the updated dimensions
-      qrCode = new QRCode(document.getElementById("qrcode"), {
-        width: dimension,
-        height: dimension,
-        text: codes[codeNumber]
-      });
-    }
-
-    document.getElementById("qrcode").childNodes.item(1).addEventListener("click", function () {
-      // copy the current qr code to the clipboard
-      enlargen();
-    });
+    // regenerate the current qr code
+    showCurrentCode();
   }
 })
 
@@ -108,12 +93,23 @@ function getFormData() {
 
 // displays the stored qr code of the given number on the page
 function showCurrentCode() {
-  // make sure that the qr code exists 
-  if (codeNumber < 0 || codeNumber >= codes.length) return;
-  // remove the previous QR code
+  // remove the previous qr code
+  document.getElementById("qrcode").innerText = "";
   
-  // add the code of the given number to the page
-  qrCode.makeCode(codes[codeNumber]);
+  // check if there is a qr code to display
+  if (codes.length != 0) {
+    // create a new qr code with the updated dimensions
+    qrCode = new QRCode(document.getElementById("qrcode"), {
+      width: dimension,
+      height: dimension,
+      text: codes[codeNumber]
+    });
+
+    // add the event listener to the qr code
+    document.getElementById("qrcode").childNodes.item(1).addEventListener("click", function () {
+      enlargen();
+    })
+  }
 }
 
 // converts the given number into a base 91 string of the given length
@@ -140,7 +136,6 @@ function convert(convertNum, minLength) {
 
   // add leading 'zeroes' if length is less than minLength
   while (basedString.length < minLength) {
-      console.log(basedString);
       basedString = 'A' + basedString;
   }
 
@@ -159,7 +154,6 @@ function enlargen() {
   container.classList.add("cont");
 
   container.addEventListener("click", function() {
-    console.log("HI");
     container.style.visibility = "hidden";
     container.style.display = "none";
     container.classList.remove("cont");
