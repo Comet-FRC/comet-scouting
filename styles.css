@@ -347,14 +347,14 @@ select {
 .pressed
 {
     background-color: var(--color-correct);
-    animation: color-change 0.4s 1;  
-    scale: 110%;
+    animation: color-change 0.1s 1;  
+    scale: 105%;
 }
 @keyframes color-change
 {
     from {
         background-color: var(--color-correct);
-        scale: 110%;
+        scale: 105%;
     }
     to {
         background-color: white;

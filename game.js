@@ -40,7 +40,7 @@ function pressChange(button) {
   button.classList.add("pressed");
   setTimeout(function() {
     button.classList.remove("pressed");
-  }, 400);
+  }, 100);
 }
 
 // adds an event of the given type to the String used to generate the qr code
