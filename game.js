@@ -25,6 +25,9 @@ function beginGame() {
     document.getElementById("l" + i + "-score").innerText = 0;
   }
 
+  document.getElementById("p-score").innerText = 0;
+  document.getElementById("n-score").innerText = 0;
+
   // initialize timer values
   gameTimer = 0;
   gameEnded = false;
@@ -43,7 +46,7 @@ function pressChange(button) {
     button.classList.add(str);
     setTimeout(function() {
       button.classList.remove(str);
-    }, 150);
+    }, 100);
 }
 
 // adds an event of the given type to the String used to generate the qr code

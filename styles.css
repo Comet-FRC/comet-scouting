@@ -427,7 +427,7 @@ select {
 }
 
 .pressed-algae {
-    animation: color-change-algae 0.15s 1;
+    animation: color-change-algae 0.1s 1;
 }
 @keyframes color-change-algae {
     0%, 100% {
