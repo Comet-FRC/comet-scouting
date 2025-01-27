@@ -1,6 +1,8 @@
 var gameTimer = 0;
 const endTime = 1500;
+const teleopTime = 150;
 var gameEnded = true;
+var isAuton = true;
 var start;
 var timerInterval;
 
@@ -27,6 +29,10 @@ function beginGame() {
 
   document.getElementById("p-score").innerText = 0;
   document.getElementById("n-score").innerText = 0;
+
+  // make auton active and teleop deactive
+  document.getElementById("auton").classList.add("switch-active");
+  document.getElementById("teleop").classList.add("switch-inactive");
 
   // initialize timer values
   gameTimer = 0;
@@ -70,6 +76,40 @@ function removeEvent(eventType) {
   }
 }
 
+function switchAuton() {
+  // check if we are already in auton
+  if (isAuton) {
+    // add the event ending auton
+    appendEvent("t");
+    
+    
+    isAuton = false;
+    // swap the styling of the auton buttons
+    autonElem = document.getElementById("auton");
+    autonElem.classList.remove("switch-active");
+    autonElem.classList.add("switch-inactive");
+
+    teleopElem = document.getElementById("teleop");
+    teleopElem.classList.remove("switch-inactive");
+    teleopElem.classList.add("switch-active");
+  }
+  else {
+    // remove the previous call if we aren't in auton
+    removeEvent("t");
+
+    isAuton = true;
+
+    // swap the styling of the auton buttons
+    autonElem = document.getElementById("auton");
+    autonElem.classList.remove("switch-inactive");
+    autonElem.classList.add("switch-active");
+
+    teleopElem = document.getElementById("teleop");
+    teleopElem.classList.remove("switch-active");
+    teleopElem.classList.add("switch-inactive");
+  }
+}
+
 function endGame() {
   // change the end button to the start button
   var startButton = document.getElementById("starter");
@@ -89,6 +129,11 @@ function updateTimer() {
   // update timer display
   var timerElem = document.getElementById("timerDisplay");
   timerElem.innerText = gameTimer / 10.0;
+
+  // check if auton period is over
+  if (isAuton && gameTimer > teleopTime) {
+    switchAuton();
+  }
   
   // end the game if it's over
   if (gameTimer >= endTime + 600 || gameEnded) {
@@ -96,13 +141,36 @@ function updateTimer() {
   }
 }
 
+
+const alertText = "Game is not active!";
+
 // event listeners
 
+// starter
 document.getElementById("starter").addEventListener("click", function () {
   if (gameEnded)
     beginGame();
   else
-  endGame();
+    endGame();
+});
+
+// auton switch
+document.getElementById("auton").addEventListener("click", function() {
+  if (!gameEnded) {
+    switchAuton();
+  }
+  else {
+    alert(alertText)
+  }
+});
+
+document.getElementById("teleop").addEventListener("click", function() {
+  if (!gameEnded) {
+    switchAuton();
+  }
+  else {
+    alert(alertText);
+  }
 });
 
 // coral buttons
@@ -113,6 +181,9 @@ for (let i = 1; i <= 4; i++) {
       score.innerText = parseInt(score.innerText) + 1;
       appendEvent(i);
       pressChange(document.getElementById("l" + i)); // color change
+    }
+    else {
+      alert(alertText);
     }
   });
 }
@@ -128,6 +199,9 @@ for (let i = 1; i <= 4; i++) {
       // remove the event from  the qr code
       removeEvent("" + i);
     }
+    else {
+      alert(alertText);
+    }
   })
 }
 
@@ -139,6 +213,9 @@ document.getElementById("processor").addEventListener("click", function () {
     score.innerText = parseInt(score.innerText) + 1;
     pressChange(document.getElementById("processor"));
   }
+  else {
+    alert(alertText);
+  }
 });
 
 document.getElementById("net").addEventListener("click", function () {
@@ -147,5 +224,8 @@ document.getElementById("net").addEventListener("click", function () {
     score = document.getElementById("n-score");
     score.innerText = parseInt(score.innerText) + 1;
     pressChange(document.getElementById("net"));
+  }
+  else {
+    alert(alertText);
   }
 });

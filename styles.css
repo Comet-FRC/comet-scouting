@@ -103,8 +103,16 @@ body {
 .auton-switch button {
     height: 100%;
     width: 100%;
+}
 
-    
+.switch-active {
+    background-color: white;
+    color: black;
+}
+
+.switch-inactive {
+    background-color: black;
+    color: gray;
 }
 
 #game-buttons {
