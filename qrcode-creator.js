@@ -14,7 +14,6 @@ var qrCode = new QRCode(document.getElementById("qrcode"), {
   text:""
 });
 
-
 window.addEventListener("resize", function() {
   if (dimension != Math.min(window.innerWidth, window.innerHeight) / 3) {
     dimension = Math.min(window.innerWidth, window.innerHeight) / 3;
@@ -26,6 +25,13 @@ window.addEventListener("resize", function() {
 
 // generates, stores, and displays a qr code that reflects the current data
 function generateCode() {
+  // check to see if the form is fully filled out
+  let incompleteElem = isCompleted();
+  if (incompleteElem != true) {
+    alert("Form is not filled out!")
+    incompleteElem.focus() 
+    return;
+  }
   
   // create a string code that represents the form data
   getFormData();
@@ -37,8 +43,21 @@ function generateCode() {
   codeNumber = codes.length - 1;
   showCurrentCode();
   
-  // clear the current code text
+  // clear the current code textj
   codeText = "";
+}
+
+function isCompleted() {
+  // loop through the pregame input
+  pregameElem = document.getElementById("pregame")
+
+  for (let i = 0; i < pregameElem.childElementCount; i++) {
+    if (pregameElem.children[i].children[1].value == "") {
+      console.log("Hello!");
+      return pregameElem.children[i].children[1];
+    }
+  }
+  return true;
 }
 
 // stores the prematch and endgame data into the current code
@@ -49,6 +68,10 @@ function getFormData() {
 
   // get and store the match value
   hexString = convert(parseInt(document.getElementById("match").value), 1);
+  codeText = hexString + codeText;
+
+  // get and store the scout's initals
+  hexString = document.getElementById("scout-id").value.toUpperCase().slice(0, 3);
   codeText = hexString + codeText;
 
   // convert the end position to to a hex string
@@ -142,17 +165,22 @@ function convert(convertNum, minLength) {
   return basedString;
 }
 
+// make a larger qr code in the center of the screen
 function enlargen() {
+  // create the new code 
   larger_qrcode = new QRCode( document.getElementById("large-qr"), {
     width: dimension * 2,
     height: dimension * 2,
     text: codes[codeNumber]
   });
+
+  // cover the rest of the screen in a white tint
   let container = document.getElementById("large-container");
   container.style.visibility = "visible";
   container.style.display = "flex";
   container.classList.add("cont");
 
+  // if anywhere else is clicked, remove the tint and the qr code
   container.addEventListener("click", function() {
     container.style.visibility = "hidden";
     container.style.display = "none";
@@ -211,6 +239,6 @@ document.getElementById("next").addEventListener("click", function () {
 });
 
 document.getElementById("qrcode").childNodes.item(1).addEventListener("click", function () {
-  // copy the current qr code to the clipboard
+  // make the qr code bigger
   enlargen();
 });

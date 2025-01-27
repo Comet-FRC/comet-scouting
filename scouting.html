@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="cache.manifest">
+<html lang="en" mainfest="cache.manifest">
 <head>
   <title>COMET FRC Scouting</title>
   
@@ -12,14 +12,18 @@
   </section>
   
   <div class="form"> 
-    
-    <section class="pregame">
-      <div id="match-num">
+    <section class="pregame" id="pregame">
+      <div>
+        <label for="scout-id">Scout Initials:</label>
+        <input type="text" name="scout-id" id="scout-id">
+      </div>
+
+      <div>
         <label for="match">Match Number:</label>
         <input type="number" name="match" id="match"> 
       </div>
       
-      <div id="team-num">
+      <div>
         <label for="team">Team Number:</label> 
         <input type="number" name="team" id="team">
       </div>
@@ -31,6 +35,11 @@
       
       <div id="timer" class="timer">
         <h2>Game Time: <span id=timerDisplay>0</span></h2> 
+      </div>
+
+      <div class="auton-switch">
+        <button id="auton">Auton</button>
+        <button id="teleop">Teleop</button>
       </div>
       
       <section id="game-buttons">
@@ -60,7 +69,6 @@
             <p id="l1-score" class="num-score">0</p>
           </div>
         </div>
-        <br>
         <div id="algae" class="algae">
           <button id="processor">Processor<p id="p-score" class="num-score">0</p></button>
           <button id="net">Net<p id="n-score" class="num-score">0</p></button>
@@ -112,8 +120,8 @@
       </section>
       
       
+      <input class="b1" type="button" name="submit" id="submit" value="Generate Code">
     </section> 
-    <input class="b1" type="button" name="submit" id="submit" value="Generate Code">
     
     <script type="application/ecmascript" src="game.js"></script>
   </div>
