@@ -63,7 +63,36 @@ body {
     font-size: 3vh;
 }
 
-.form{
+#alliance {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+#alliance-switch button {
+    color: white;
+}
+
+
+#red-alliance.switch-inactive {
+    background-color: rgb(128, 0, 0);
+}
+
+#blue-alliance.switch-inactive {
+    background-color: rgb(0, 0, 128);
+} 
+
+#red-alliance.switch-active {
+    background-color: red;
+}
+
+#blue-alliance.switch-active {
+    background-color: blue;
+}
+
+
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,9 +110,6 @@ body {
     width: 20rem;
 
     font-size: 2rem;
-
-    align-items: center;
-    justify-items: center;
 }
 
 #timer {
@@ -105,12 +131,12 @@ body {
     width: 100%;
 }
 
-.switch-active {
+#auton-switch .switch-active {
     background-color: white;
     color: black;
 }
 
-.switch-inactive {
+#auton-switch .switch-inactive {
     background-color: black;
     color: gray;
 }

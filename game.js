@@ -154,6 +154,30 @@ function gameAlert() {
 
 // event listeners
 
+// alliance switch
+var redAlli = document.getElementById("red-alliance");
+var blueAlli = document.getElementById("blue-alliance");
+
+redAlli.addEventListener("click", function () {
+  // check if either option has been clicked yet
+  if (blueAlli.classList.contains("switch-active") || redAlli.classList.contains("switch-active")) {
+    toggleSwitch(document.getElementById("alliance-switch"));
+  }
+  else {
+    redAlli.classList.replace("switch-inactive", "switch-active");
+  }
+});
+
+blueAlli.addEventListener("click", function () {
+  // check if either option has been clicked 
+  if (redAlli.classList.contains("switch-active") || blueAlli.classList.contains("switch-active")) {
+    toggleSwitch(document.getElementById("alliance-switch"));
+  }
+  else {
+    blueAlli.classList.replace("switch-inactive", "switch-active");
+  }
+})
+
 // starter
 document.getElementById("starter").addEventListener("click", function () {
   if (gameEnded)
