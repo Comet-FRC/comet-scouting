@@ -62,6 +62,19 @@ function isCompleted() {
 
 // stores the prematch and endgame data into the current code
 function getFormData() {
+  // get and store the alliance color
+
+  // document.getElementById("alliance").value = "something";
+  // console.log(document.getElementById("alliance").value);
+  switch(document.getElementById("alliance-switch").value) {
+    case "Red":
+      codeText = 'r' + codeText;
+      break;
+
+    case "Blue":
+      codeText = 'b' + codeText;
+      break;
+  }
   // get and store the team value
   let hexString = convert(parseInt(document.getElementById("team").value), 3);
   codeText = hexString + codeText;

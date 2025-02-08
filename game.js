@@ -158,23 +158,43 @@ function gameAlert() {
 var redAlli = document.getElementById("red-alliance");
 var blueAlli = document.getElementById("blue-alliance");
 
+// red side
 redAlli.addEventListener("click", function () {
   // check if either option has been clicked yet
-  if (blueAlli.classList.contains("switch-active") || redAlli.classList.contains("switch-active")) {
-    toggleSwitch(document.getElementById("alliance-switch"));
-  }
-  else {
+  // if (blueAlli.classList.contains("switch-active") || redAlli.classList.contains("switch-active")) {
+  //   toggleSwitch(document.getElementById("alliance-switch"));
+  // }
+  // else {
+  //   redAlli.classList.replace("switch-inactive", "switch-active");
+  // }
+
+  // set the currenlt 
+  try {
     redAlli.classList.replace("switch-inactive", "switch-active");
+    blueAlli.classList.replace("switch-active", "switch-inactive");
+  }
+  finally {
+    document.getElementById("alliance-switch").value = "Red";
   }
 });
 
+// blue side
 blueAlli.addEventListener("click", function () {
   // check if either option has been clicked 
-  if (redAlli.classList.contains("switch-active") || blueAlli.classList.contains("switch-active")) {
-    toggleSwitch(document.getElementById("alliance-switch"));
-  }
-  else {
+  // if (redAlli.classList.contains("switch-active") || blueAlli.classList.contains("switch-active")) {
+  //   toggleSwitch(document.getElementById("alliance-switch"));
+  // }
+  // else {
+  //   blueAlli.classList.replace("switch-inactive", "switch-active");
+  // }
+
+  // try to replace the current inactive and inactive tags 
+  try {
     blueAlli.classList.replace("switch-inactive", "switch-active");
+    redAlli.classList.replace("switch-active", "switch-inactive");
+  }
+  finally {
+    document.getElementById("alliance-switch").value = "Blue";
   }
 })
 
