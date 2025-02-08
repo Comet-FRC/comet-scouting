@@ -91,7 +91,7 @@ body {
 
 }
 
-.auton-switch {
+.switch {
     display: inline-flex;
 
     height: 5vh;
@@ -100,7 +100,7 @@ body {
     justify-content: center;
 }
 
-.auton-switch button {
+.switch button {
     height: 100%;
     width: 100%;
 }
@@ -208,7 +208,7 @@ body {
         flex-direction: column;
     }
 
-    .auton-switch {
+    #switch {
         height: 5vh;
     }
 

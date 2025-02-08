@@ -31,8 +31,11 @@ function beginGame() {
   document.getElementById("n-score").innerText = 0;
 
   // make auton active and teleop deactive
-  document.getElementById("auton").classList.add("switch-active");
-  document.getElementById("teleop").classList.add("switch-inactive");
+
+  // add functionality to the auton switches
+  switchOptions = document.getElementById("auton-switch").children;
+  switchOptions[0].classList.add("switch-active");
+  switchOptions[1].classList.add("switch-inactive");
 
   // initialize timer values
   gameTimer = 0;
@@ -76,6 +79,18 @@ function removeEvent(eventType) {
   }
 }
 
+function toggleSwitch(id) {
+  // get the two switch options
+  activeOption = id.getElementsByClassName("switch-active")[0];
+  inactiveOption = id.getElementsByClassName("switch-inactive")[0];
+
+
+  activeOption.classList.replace("switch-active", "switch-inactive");
+  inactiveOption.classList.replace("switch-inactive", "switch-active");
+
+  id.value = inactiveOption.value;
+}
+
 function switchAuton() {
   // check if we are already in auton
   if (isAuton) {
@@ -84,30 +99,17 @@ function switchAuton() {
     
     
     isAuton = false;
-    // swap the styling of the auton buttons
-    autonElem = document.getElementById("auton");
-    autonElem.classList.remove("switch-active");
-    autonElem.classList.add("switch-inactive");
-
-    teleopElem = document.getElementById("teleop");
-    teleopElem.classList.remove("switch-inactive");
-    teleopElem.classList.add("switch-active");
   }
   else {
     // remove the previous call if we aren't in auton
     removeEvent("t");
-
+    
     isAuton = true;
-
-    // swap the styling of the auton buttons
-    autonElem = document.getElementById("auton");
-    autonElem.classList.remove("switch-inactive");
-    autonElem.classList.add("switch-active");
-
-    teleopElem = document.getElementById("teleop");
-    teleopElem.classList.remove("switch-active");
-    teleopElem.classList.add("switch-inactive");
   }
+
+  // toggle the visual button states
+  toggleSwitch(document.getElementById("auton-switch"));
+
 }
 
 function endGame() {
@@ -142,7 +144,13 @@ function updateTimer() {
 }
 
 
-const alertText = "Game is not active!";
+// const alertText = "Game is not active!";
+
+function gameAlert() {
+  alert("Game is not active! Press the start button to begin the game.");
+
+  document.getElementById("starter").focus();
+}
 
 // event listeners
 
@@ -155,23 +163,12 @@ document.getElementById("starter").addEventListener("click", function () {
 });
 
 // auton switch
-document.getElementById("auton").addEventListener("click", function() {
-  if (!gameEnded) {
+document.getElementById("auton-switch").addEventListener("click", function () {
+  if (!gameEnded) 
     switchAuton();
-  }
-  else {
-    alert(alertText)
-  }
-});
-
-document.getElementById("teleop").addEventListener("click", function() {
-  if (!gameEnded) {
-    switchAuton();
-  }
-  else {
-    alert(alertText);
-  }
-});
+  else
+    gameAlert()
+})
 
 // coral buttons
 for (let i = 1; i <= 4; i++) {
@@ -183,7 +180,7 @@ for (let i = 1; i <= 4; i++) {
       pressChange(document.getElementById("l" + i)); // color change
     }
     else {
-      alert(alertText);
+      gameAlert()
     }
   });
 }
@@ -200,7 +197,7 @@ for (let i = 1; i <= 4; i++) {
       removeEvent("" + i);
     }
     else {
-      alert(alertText);
+      gameAlert()
     }
   })
 }
@@ -214,7 +211,7 @@ document.getElementById("processor").addEventListener("click", function () {
     pressChange(document.getElementById("processor"));
   }
   else {
-    alert(alertText);
+    gameAlert()
   }
 });
 
@@ -226,6 +223,6 @@ document.getElementById("net").addEventListener("click", function () {
     pressChange(document.getElementById("net"));
   }
   else {
-    alert(alertText);
+    gameAlert()
   }
 });
