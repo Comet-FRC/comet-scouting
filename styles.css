@@ -6,14 +6,37 @@
 
 :root
 {
-    --background-color: #877DAD;
-    --accent: rgb(226, 0, 226);
+    /* --background-color: #877DAD; */
+    --h1-color: rgb(248, 248, 242);
+    --h2-color: rgb(189, 147, 249);
+    --color-two: rgb(98, 114, 164);
+    --color-three: rgb(32, 34, 44);
+    --color-four: rgb(56, 61, 85);
+    --background-color: rgb(40, 42, 54);
+
+    /* --accent: rgb(226, 0, 226); */
+    --accent: rgb(189, 147, 249);
+    --text-color: rgb(23, 184, 189);
     --color-correct: rgb(0, 255, 251);
+
+    /* alliance switch colors */
+    --red-alliance-inactive: rgb(128, 0, 0);
+    --red-alliance-active: rgb(199, 32, 32);
+    --blue-alliance-inactive: rgb(0, 0, 128);
+    --blue-alliance-active: rgb(32, 32, 199);
+
+    --heading-font: "Oswald", sans-serif;
+    --body-font: 'Open Sans', sans-serif;
 }
 
 @font-face {
     font-family: "Agency FB Bold";
     src: url("fonts/AgencyFB-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Oswald";
+    src: url("fonts/Oswald-VariableFont_wght.ttf")
 }
 
 html {
@@ -25,8 +48,10 @@ html {
 body {
     background-color: var(--background-color);
     font-size: 1.3rem;
-    font-family: "Agency FB Bold";
-    color: black;
+    /* font-family: "Agency FB Bold"; */
+    font-family: var(--body-font);
+    color: var(--h1-color);
+    /* color: black; */
     margin: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -34,13 +59,29 @@ body {
 }
 
 .headers {
+    margin: 2rem 0 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.headers h1 {
+    color: var(--h1-color);
+    font-family: var(--heading-font);
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.headers h2 {
+    max-width: 45em;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-two);
+    font-size: 1.25em;
+}
 .headers h1, .headers h2
 {
+    display: flex;
+    text-align: center;
     margin: .5rem 1rem 2rem 1rem;
 }
 
@@ -52,15 +93,48 @@ body {
     font-size: 4vh;
     
     width: 60vw;
+
+    margin: 0 0 4em 0;
+
+    font-family: var(--heading-font);
+}
+
+.pregame .metric {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    
+    padding: 0.25em;
+    height: 1.5em;
+    width: 100%;
+    max-width: 20em;
+
+    margin: 0.25em 0;
+    
+    border-radius: 0.25em;
+    background-color: var(--color-four);
 }
 
 .pregame input {
     position: relative;
-    top: -0.5vh;
-    height: 4vh;
+    /* top: -0.5vh; */
+    height: 100%;
     width: 25vw;
+    max-width: 10em;
 
     font-size: 3vh;
+
+    padding: 0 0.25em 0 0.25em;
+
+    text-align: center;
+
+    color: var(--h1-color);
+    background-color: var(--color-three);
+
+    border: none;
+    border-radius: 10px;
 }
 
 #alliance {
@@ -68,27 +142,67 @@ body {
     flex-direction: column;
 
     align-items: center;
+
+}
+
+#alliance-switch {
+    height: 8em;
+    
+    border-radius: 30px;
+
+    overflow: hidden;
 }
 
 #alliance-switch button {
+    height: 100%;
+
+    border-top: none;
+    border-bottom: none;
+
+    transition: all 0.4s ease;
+    width: 50%;
+
+    font-size: 2em;
+}
+
+#red-alliance {
+    background-color: var(--color-three);
+    color: var(--red-alliance-inactive);
+    
+    border-right: 1px solid var(--color-four);
+    border-left: none;
+}
+
+#blue-alliance {
+    background-color: var(--color-three);
+    color: var(--blue-alliance-inactive);
+    
+    border-left: 1px solid var(--color-four);
+    border-right: none;
+}
+
+#alliance-switch button.switch-active {
+    width: 70%;
+    /* border-left: none;
+    border-right: none; */
+}
+
+#alliance-switch button.switch-inactive {
+    width: 30%;
+    /* border-left: none;
+    border-right: none; */
+}
+
+
+
+#red-alliance.switch-active {
+    background-color: var(--red-alliance-active);
     color: white;
 }
 
-
-#red-alliance.switch-inactive {
-    background-color: rgb(128, 0, 0);
-}
-
-#blue-alliance.switch-inactive {
-    background-color: rgb(0, 0, 128);
-} 
-
-#red-alliance.switch-active {
-    background-color: red;
-}
-
 #blue-alliance.switch-active {
-    background-color: blue;
+    background-color: var(--blue-alliance-active);
+    color: white; 
 }
 
 
@@ -98,10 +212,16 @@ body {
     align-items: center;
 }
 
-.game {
+#game {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    padding: 1em 1em 1em 1em;
+    /* background-color: var(--color-four); */
+    border: solid 10px var(--color-three);
+
+    border-radius: 4em;
 }
 
 
@@ -109,7 +229,7 @@ body {
     height: 4rem;
     width: 20rem;
 
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 #timer {
@@ -120,7 +240,7 @@ body {
 .switch {
     display: inline-flex;
 
-    height: 5vh;
+    /* height: 5vh; */
     width: 40vw;
 
     justify-content: center;
@@ -131,43 +251,208 @@ body {
     width: 100%;
 }
 
-#auton-switch .switch-active {
-    background-color: white;
-    color: black;
+#game-interactive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+#auton-switch {
+    height: 3em;
+
+    display: flex;
+    align-items: end;
+}
+
+.auton, #auton.switch-active {
+    background-color: var(--h2-color);
+}
+
+.auton-alt, #auton.switch-inactive {
+    color: var(--h2-color);
+}
+
+.teleop, #teleop.switch-active {
+    background-color: var(--text-color);
+}
+
+.auton-alt, #teleop.switch-inactive {
+    color: var(--text-color);
+    
+}
+
+#auton-switch button {
+    border: solid 1px var(--background-color);
+    border-bottom: none;
+    border-radius: 1em 1em 0 0;
+    font: inherit;
+
+    height: 10%;
+    font-size: 0.25em;
+    color: var(--color-two);
+    background-color: var(--color-three);
+    transition: height 0.2s ease, font-size 0.2s ease, background-color 0.4s ease;
+}
+
+#auton-switch .switch-active {
+    color: var(--background-color);
+
+    height: 100%;
+    font-size: 1em;
+}
+
+
 #auton-switch .switch-inactive {
-    background-color: black;
-    color: gray;
+    background-color: var(--color-three);
+    height: 100%;
+    font-size: 1em;
 }
 
 #game-buttons {
-    display:flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 15% 85%;
+    /* justify-content: center; */
 
+    background-color: var(--color-three);
+
+    border-radius: 3em;
 
     width: 80vw;
     height: 80vh;
 }
 
+/* #game-buttons button.clicked:not(.inactive) {
+    background-color: var(--color-two);
+    transition: background-color 0.2s ease, scale 0.2s ease;
+    scale: 95%;
+} */
+
+#game-buttons p,
+#game-buttons h2 {
+    transition: font-size 0.3s ease, color 0.4s ease;
+}
+
+
+
+#game-buttons button {
+    color: var(--color-three);
+    border: none;
+    
+    transition: color 0.4s ease, background-color 0.4s ease, scale 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-buttons.undo button {
+    background-color: var(--red-alliance-active);
+}
+
+
+#game-buttons.inactive h2,
+#game-buttons.inactive p {
+    color: var(--color-four);
+}
+
+#game-buttons.auton h2,
+#game-buttons.auton p {
+    color: var(--accent);
+}
+
+#game-buttons.teleop h2,
+#game-buttons.teleop p {
+    color: var(--text-color);
+}
+
+
+#game-buttons.inactive button {
+    background-color: var(--color-four);
+}
+
+#game-buttons.auton:not(.undo-mode) div:not(#additionals) button:not(.clicked) {
+    background-color: var(--h2-color);
+}
+
+#game-buttons.teleop:not(.undo-mode) div:not(#additionals) button:not(.clicked) {
+    background-color: var(--text-color);
+}
+
+#game-buttons.undo-mode:not(.inactive) div:not(#additionals) button:not(.clicked) {
+    background-color: var(--red-alliance-active);
+}
+
+#game-buttons:not(.inactive) button:hover
+{
+    background-color: white;
+    scale: 108%;
+    /* font-size: 8vh; */
+}
+
+#game-buttons:not(.inactive) button.clicked {
+    background-color: var(--color-two);
+    scale: 95%;
+}
+
+#additionals {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: 2rem;
+
+}
+
+#additionals button {
+    height: 80%;
+    width: 20%;
+    
+    border-radius: 20em;
+
+    font-size: 2em;
+    /* font-weight: bold; */
+    color: var(--color-three);
+}
+
+button#auton-leave {
+    font-size: 1.25em;
+}
+
+#game-buttons:not(.inactive) #undo.off {
+    background-color: var(--color-four);
+    color: var(--red-alliance-inactive);
+}
+
+#game-buttons:not(.inactive) #undo.on {
+    background-color: var(--red-alliance-active);
+}
+
+#game-buttons:not(.inactive) #auton-leave.off {
+    background-color: var(--color-four);
+    color: var(--h2-color);
+}
+
+#game-buttons:not(.inactive) #auton-leave.on {
+    background-color: var(--h2-color);
+}
+
 #coral
 {
-    background-image: url("images/coral.png");
+    grid-row: 2;
+    
     display: flex;
     flex-direction: column;
-
-    min-width: 75%;
-    height: auto;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
 }    
 
-.level
-{
+.level {
     background-color: rgba(0, 0, 0, 0);
+    height: 25%;
     flex-grow: 1;
-    color: var(--accent);
+
     font-weight: bold;
     display: flex;
     justify-content: space-evenly;
@@ -179,113 +464,99 @@ body {
     transition: font-size 0.3s ease, background-color 0.3s ease;
 }
 
-.level:hover
+#game-buttons:not(.inactive) .level:hover p
 {
-    background-color: rgba(0, 0, 0, 0.1);
-    border: solid 1px black;
     font-size: 6vh;
 }
 
 .level button
 {
-    height: 8vh;
-    width: 8vh;
-    font-size: 6vh;
-    border-radius: 10%;
-    background-color: var(--accent);
-    border: solid 1px black;
-    color: white;
-    transition: all 0.2s ease;
-    padding: 0vh 0.5vw;
+    height: 80%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 2em;
+
+    border-radius: 10em;
 }   
 
-.level button:hover
-{
-    background-color: white;
-    color: var(--accent);
-    scale: 108%;
-    font-size: 8vh;
+
+.level button.minus-button {
+    font-family: 'Trebuchet MS';
+    width: 20%;
+
+    font-size: 4em;
+}
+
+.level button.add-button {
+    width: 80%;
 }
 
 
 .num-score
 {
-    color: var(--accent);
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    align-self: end;
 }
 
 #algae {
-    /* width:20rem;
-    height:19rem; */
-    min-width: 25%;
+    grid-row: 2;
+
     display:flex;
     flex-direction:column;
 }
 
-@media screen and (max-width: 800px)
-{
-    #game-buttons {
-        flex-direction: column;
-    }
+#algae .algae-level {
+    display: flex;
+    flex-direction: row;
 
-    #switch {
-        height: 5vh;
-    }
+    height: 33%;
 
-    #coral {
-        min-width: 100%;
-        min-height: 80%;
+    align-items: center;
+    justify-content: center;
 
-        margin: 0px;
-    }
-
-    #algae {
-        min-width: 100%;
-        min-height: 20%;
-        display: inline-flex;
-        flex-direction: row;
-
-        margin: 0px;
-
-        align-items: space-evenly;
-        justify-items: center;
-    }
-
-    #algae button {
-        width: 50%;
-        height: 100%;
-
-        margin: 0px;
-    }
+    padding: 0 2rem 0 0.5rem;
 }
 
-#algae button {
-    flex-grow: 1;
-    font-weight: bold;
-    transition: all 0.2s ease;
-    font-size: 4vh;
-    color: var(--accent);
+#algae .minus {
+    height: 80%;
+    width: 1.5em;
 
-    border: 1px solid black;
-    background-color: white;
+    padding-bottom: 0.1em;
+    
+    border-radius: 4rem;
+    border: none;
+
+    font-size: 6em;
+    font-weight: bold;
+    font-family: 'Trebuchet MS';
+
+    vertical-align: center;
+}
+
+
+#algae .add-button {
+    font-weight: bold;
+    border-radius: 4rem;
+    
+
+    width: 80%;
+    height: 90%;
+
 
     position: relative;
 }
-#algae button:hover {
-    color: white;
-    background-color: var(--accent);
-    font-size: 5vh;
 
-    border: 4px solid black;
+#algae .algae-level p {
+    position: relative;
 }
-#algae button:hover .num-score {
-    color: white;
+
+#game-buttons:not(.inactive) .algae-level:hover {
+    font-size: 1.5em;
+}
+
+#algae button img {
+    position: absolute;
+
+    width: auto;
+    height: 90%;
 }
 
 #endgame-buttons {
@@ -295,11 +566,19 @@ body {
     width: 40vw;
 
     font-size: 6vh;
+    padding: 2em;
+
+    border-radius: 2em;
+
+    margin: 1em;
+
+    background-color: var(--color-four);
 }
 
 #end-position {
     display: flex;
     flex-direction: column;
+    font-family: var(--heading-font);
 
     margin-top: 1vh;
 }
@@ -308,7 +587,14 @@ body {
     height: 8vh;
     
     font-size: 5vh;
-    font-family: "Agency FB Bold";
+
+    font-family: var(--heading-font);
+
+    background-color: var(--color-three);
+    
+    border: none;
+
+    color: white;
 }
 
 #tags {
@@ -317,7 +603,8 @@ body {
 }
 
 .tag-select {
-
+    
+    font-family: var(--heading-font);
     display: inline;
     
     position: relative;
@@ -327,31 +614,29 @@ body {
     overflow: visible;
 }
 
-.tag-select button  {
-    font-size: 6vh;
-    height: 8vh;
-    width: 8vh;
+.tag-button {
+    font-size: 1em;
+    height: 1.5em; 
+    width: 1.5em;
 
-    margin: 0.5vh;
-
-    text-align:center;
-    border-radius: 15%;
-
-    color:white;
-    background-color:var(--accent);
+    background-color: var(--h2-color);
+    color: var(--background-color);
     
+    border: none;
+    border-radius: 0.5em;
 
     transition: all 0.2s ease;
 }
 
 .tag-button:hover {
-    scale: 110%;
-    color: var(--accent);
+    scale: 109%;
+
     background-color: white;
 }
 
 .tag-display {
     display: inline-flex;
+
     
     position: relative;
     align-items: center;
@@ -372,7 +657,7 @@ body {
     /* height: 6vh; */
     /* width:100px; */
     
-    background-color:white;
+    background-color:var(--text-color);
     /* TODO - Pick a font that thematically fits for tags */
     
     border-radius: 2vh;
@@ -392,7 +677,7 @@ body {
     /* padding:0.25rem; */
     display:none;
     position:absolute;
-    background-color:white;
+    background-color: var(--color-two);
     overflow:auto;
     z-index:1;
 
@@ -420,6 +705,11 @@ select {
     overflow-y:auto;
 }
 
+#submit {
+    font-size: 4em;
+    margin-bottom: 2em;
+}
+
 #codes {
     visibility:hidden;
     align-items: center;
@@ -428,22 +718,42 @@ select {
 
 .b1
 {
-    background-color: var(--accent);
-    padding: 0.5rem;
-    color: white;
-    transition: background-color 0.15s ease, color 0.15s ease, translate 0.1s ease-out;
-    margin: 1rem 0;
-    border-radius: 0.5rem;
+    background-color: var(--h2-color);
+    /* padding: 0.01em; */
+
+    font-family: var(--heading-font);
+    /* font-weight: bold; */
+    /* font-size: 4em; */
+    text-align: center;
+
+    padding: 0 0.25em 0 0.25em;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: vr(--background-color);
+    transition: background-color 0.15s ease, color 0.15s ease, scale 0.075s ease-out;
+    /* margin: 1rem 0; */
+    border-radius: 0.75em;
+    border: none; 
     font-size: 6vh;
 }
 
 .b1:hover
 {
     background-color: white;
-    color: var(--accent);
-    translate: 0 -0.15rem;
-    scale: 101%;
+    /* color: var(--accent); */
+    /* translate: 0 -0.15rem; */
+    scale: 105%;
 }
+
+.b1.clicked {
+    scale: 95%;
+    background-color: var(--color-two);
+}
+
+
 
 .show {
     display:block;
@@ -472,6 +782,18 @@ select {
     animation: color-change 0.1s 1;  
 }
 
+/* Remove input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 @keyframes color-change
 {
     0%, 100% {
@@ -487,6 +809,7 @@ select {
 .pressed-algae {
     animation: color-change-algae 0.1s 1;
 }
+
 @keyframes color-change-algae {
     0%, 100% {
         color: white;
@@ -501,3 +824,53 @@ select {
         border-width: 6px;  
     }
 }    
+
+@media screen and (max-width: 1000px)
+{
+    #game-buttons {
+        /* flex-direction: column; */
+        /* height: calc(80vh + 8em); */
+    }
+
+    #switch {
+        height: 5vh;
+    }
+
+    #coral {
+        /* min-width: 100%;
+        min-height: 80%; */
+
+        margin: 0px;
+    }
+
+    #algae {
+        /* min-width: 100%;
+        min-height: 20%; */
+
+        /* height: 20vh;
+        min-height: 4em;
+        display: inline-flex;
+        flex-direction: row;
+
+        margin: 0px;
+
+        align-items: space-evenly;
+        justify-items: center; */
+    }
+
+    #algae button {
+        width: 50%;
+        height: 100%;
+
+        margin: 0px;
+    }
+
+    #algae button img {
+        width: 90%;
+        height: auto;
+    }
+
+    #endgame-buttons {
+        font-size: 4vh;
+    }
+}

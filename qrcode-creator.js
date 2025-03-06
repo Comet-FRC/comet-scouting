@@ -53,10 +53,16 @@ function isCompleted() {
 
   for (let i = 0; i < pregameElem.childElementCount; i++) {
     if (pregameElem.children[i].children[1].value == "") {
-      console.log("Hello!");
       return pregameElem.children[i].children[1];
     }
   }
+
+  let allianceSwitch = document.getElementById('alliance-switch');
+  if (allianceSwitch.value == "") {
+    return allianceSwitch.value;
+  }
+
+
   return true;
 }
 

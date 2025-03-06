@@ -13,73 +13,99 @@
   
   <div class="form"> 
     <section class="pregame" id="pregame">
-      <div>
+      <div class="metric">
         <label for="scout-id">Scout Initials:</label>
-        <input type="text" name="scout-id" id="scout-id">
-      </div>
-
-      <div>
-        <label for="match">Match Number:</label>
-        <input type="number" name="match" id="match"> 
+        <input type="text" name="scout-id" id="scout-id" maxlength="3">
       </div>
       
-      <div>
-        <label for="team">Team Number:</label> 
-        <input type="number" name="team" id="team">
+      <div class="metric">
+        <label for="match">Match Number:</label>
+        <input type="number" name="match" id="match" min="1" max="99"> 
       </div>
-
+      
+      <div class="metric">
+        <label for="team">Team Number:</label> 
+        <input type="number" name="team" id="team" min="1" max="19999">
+      </div>
+      
       <div id="alliance" >
         <label for="alliance-switch">Alliance Color:</label>
         <div id="alliance-switch" class="switch">
-          <button id="red-alliance" class="switch-inactive">Red</button>
-          <button id="blue-alliance" class="switch-inactive">Blue</button>
+          <button id="red-alliance">Red</button>
+          <button id="blue-alliance">Blue</button>
         </div>
       </div>
     </section>
     
-
+    
     <section id="game" class="game">
-      <input class="b1" type="button" value="Start Game" id="starter">
+      <button class="b1" id="starter">Start Game</button>
       
       <div id="timer" class="timer">
-        <h2>Game Time: <span id=timerDisplay>0</span></h2> 
-      </div>
-
-      <div id="auton-switch" class="switch">
-        <button>Auton</button>
-        <button>Teleop</button>
+        <h2>Game Time: <span id="timer-display">0</span></h2> 
       </div>
       
-      <section id="game-buttons">
-        <div id="coral">
-          <div class="level">
-            <button id="minus4">-</button>
-            <p>L4</p>
-            <button id="l4">+</button>
-            <p id="l4-score" class="num-score">0</p>
-          </div>
-          <div class="level">
-            <button id="minus3">-</button>
-            <p>L3</p>
-            <button id="l3">+</button>
-            <p id="l3-score" class="num-score">0</p>
-          </div>
-          <div class="level">
-            <button id="minus2">-</button>
-            <p>L2</p>
-            <button id="l2">+</button>
-            <p id="l2-score" class="num-score">0</p>
-          </div>
-          <div class="level">
-            <button id="minus1">-</button>
-            <p>L1</p>
-            <button id="l1">+</button>
-            <p id="l1-score" class="num-score">0</p>
-          </div>
+      
+      
+      <div id="game-interactive">
+        <div id="auton-switch" class="switch">
+          <button id="auton">Auton</button>
+          <button id="teleop">Teleop</button>
         </div>
-        <div id="algae" class="algae">
-          <button id="processor">Processor<p id="p-score" class="num-score">0</p></button>
-          <button id="net">Net<p id="n-score" class="num-score">0</p></button>
+        
+        <section id="game-buttons" class="inactive">
+          <div id="additionals">
+            <button id="auton-leave" class="off">Auton Leave</button>
+            <div class="score-display">
+              <h2><span id="score">0</span> Points</h2>
+            </div>
+            <button id="undo" class="off">Undo</button>
+          </div>
+          <div id="coral">
+            <div class="level">
+              <!-- <button id="minus4" class=" minus-button minimized">-</button> -->
+              <p id="l4-score" class="num-score">0</p>
+              <button id="l4" class=" add-button">L4</button>
+            </div>
+            <div class="level">
+              <!-- <button id="minus3" class=" minus-button minimized">-</button> -->
+              <p id="l3-score" class="num-score">0</p>
+              <button id="l3" class=" add-button">L3</button>
+            </div>
+            <div class="level">
+              <!-- <button id="minus2" class=" minus-button minimized">-</button> -->
+              <p id="l2-score" class="num-score">0</p>
+              <button id="l2" class=" add-button">L2</button>
+            </div>
+            <div class="level">
+              <!-- <button id="minus1" class=" minus-button minimized">-</button> -->
+              <p id="l1-score" class="num-score">0</p>
+              <button id="l1" class=" add-button">L1</button>
+            </div>
+          </div>
+          <div id="algae" class="algae">
+            <div class="algae-level">
+              <!-- <button id="minus-net" class=" minus">-</button> -->
+              <button id="net" class=" add-button">
+                <img src="/images/net.png">
+              </button>
+              <p id="n-score" class="num-score">0</p>
+            </div>
+            <div class="algae-level">
+              <!-- <button id="minus-algae" class=" minus">-</button> -->
+              <button id="algae-removed" class=" add-button">
+                <img src="/images/algae1.png">
+              </button>
+              <p id="a-value" class="num-score">0</p>
+            </div>
+            <div class="algae-level">
+              <!-- <button id="minus-net" class=" minus">-</button> -->
+              <button id="processor" class=" add-button">
+                <img src="/images/processor.png">
+              </button>
+              <p id="p-score" class="num-score">0</p>
+            </div>
+          </div>
         </div>
       </section>
       
@@ -122,13 +148,13 @@
               <li id="71">Bad Scoring</li> 
             </ul>
           </div>
-
+          
           <script type="application/ecmascript" src="form.js"></script>
         </div>
       </section>
       
       
-      <input class="b1" type="button" name="submit" id="submit" value="Generate Code">
+      <button class="b1" name="submit" id="submit">Generate Code</button>
     </section> 
     
     <script type="application/ecmascript" src="game.js"></script>
@@ -146,4 +172,5 @@
   <script type="application/ecmascript" src="qrcode.js"></script>  
   <script type="application/ecmascript" src="qrcode-creator.js"></script>
 </body>
-</html>
+<script type="application/ecmascript" src="preload.js"></script>
+</html> 
