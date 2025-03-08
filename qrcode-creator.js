@@ -139,10 +139,43 @@ function getFormData() {
   }
 }
 
+function decode(basedString) {
+  // Define the base 91 character set
+  const base91Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+,./:;<=>?@[]^_`{|}~\\";
+
+  // Create a map to quickly look up the index of each character
+  const charToValue = {};
+  for (let i = 0; i < base91Chars.length; i++) {
+    charToValue[base91Chars[i]] = i;
+  }
+
+  let num = 0;
+  let power = 1;
+
+  // Iterate over the string in reverse order
+  for (let i = basedString.length - 1; i >= 0; i--) {
+    const char = basedString[i];
+    if (charToValue.hasOwnProperty(char)) {
+      num += charToValue[char] * power;
+      power *= 91;
+    } else {
+      // Handle invalid characters (optional)
+      throw new Error(`Invalid character in base91 string: ${char}`);
+    }
+  }
+
+  return num;
+}
+
 // displays the stored qr code of the given number on the page
 function showCurrentCode() {
   // remove the previous qr code
   document.getElementById("qrcode").innerText = "";
+
+  // remove code information
+  document.getElementById("code-team").innerText = "";
+  document.getElementById("code-match").innerText = "";
+
   
   // check if there is a qr code to display
   if (codes.length != 0) {
@@ -152,11 +185,20 @@ function showCurrentCode() {
       height: dimension,
       text: codes[codeNumber]
     });
+    
+    // obtain team and match numbers after decoding the current qrcode
+    matchInfo = decode(codes[codeNumber].slice(3, 4));
+    teamInfo = decode(codes[codeNumber].slice(5, 7));
+    console.log(matchInfo + " " + teamInfo);
+
+    // display team and match numbers
+    document.getElementById("code-team").innerText = "Team: " + teamInfo;
+    document.getElementById("code-match").innerText = "Match: " + matchInfo;
 
     // add the event listener to the qr code
     document.getElementById("qrcode").childNodes.item(1).addEventListener("click", function () {
       enlargen();
-    })
+    });
   }
 }
 

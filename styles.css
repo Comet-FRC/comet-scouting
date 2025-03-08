@@ -816,6 +816,21 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+#code-info {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    visibility: visible;
+}
+
+#code-info div {
+    margin: 0.5em;
+    padding: 0.75em;
+    background-color: var(--color-three);
+    border-radius: 1em;
+}
+
 @keyframes color-change
 {
     0%, 100% {
