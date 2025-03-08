@@ -69,9 +69,6 @@ function isCompleted() {
 // stores the prematch and endgame data into the current code
 function getFormData() {
   // get and store the alliance color
-
-  // document.getElementById("alliance").value = "something";
-  // console.log(document.getElementById("alliance").value);
   switch(document.getElementById("alliance-switch").value) {
     case "Red":
       codeText = 'r' + codeText;
@@ -81,6 +78,15 @@ function getFormData() {
       codeText = 'b' + codeText;
       break;
   }
+
+  // get and store the auton leave status
+  if (document.getElementById('auton-leave').classList.contains('on')) {
+    codeText = "y" + codeText;
+  }
+  else {
+    codeText = "n" + codeText;
+  }
+
   // get and store the team value
   let hexString = convert(parseInt(document.getElementById("team").value), 3);
   codeText = hexString + codeText;
@@ -93,8 +99,8 @@ function getFormData() {
   hexString = document.getElementById("scout-id").value.toUpperCase().slice(0, 3);
   codeText = hexString + codeText;
 
+
   // convert the end position to to a hex string
-  
   switch (document.getElementById("position-select").options[document.getElementById("position-select").selectedIndex].value) {
     case "none":
       hexString = 'x';

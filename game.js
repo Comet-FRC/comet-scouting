@@ -20,7 +20,9 @@ const autonScoreVals = {
   "l4": 7,
   
   "p": 6,
-  "n": 4
+  "n": 4,
+  "r": 0,
+  "leave": 3
 }
 
 const teleopScoreVals = {
@@ -30,7 +32,8 @@ const teleopScoreVals = {
   "l4": 5,
   
   "p": 6,
-  "n": 4
+  "n": 4,
+  "r": 0
 }
 
 var codeText = "";
@@ -66,7 +69,8 @@ function beginGame() {
   autonSwitched = false;
   
   // turn off undo mode
-  undoMode = false;
+  if (undoMode) 
+    toggleUndo();
   
   // set autonLeave to false;
   document.getElementById('auton-leave').classList.replace('on', 'off');
@@ -240,6 +244,20 @@ function switchAuton() {
   
 }
 
+function toggleUndo() {
+  let undoButton = document.getElementById('undo');
+  if (undoMode) {
+    undoButton.classList.replace('on', 'off');
+    document.getElementById('game-buttons').classList.remove('undo-mode');
+    undoMode = false;
+  }
+  else {
+    undoButton.classList.replace('off', 'on');
+    document.getElementById('game-buttons').classList.add('undo-mode');
+    undoMode = true;
+  }
+}
+
 
 function endGame() {
   // change the end button to the start button
@@ -346,15 +364,30 @@ document.getElementById("auton-switch").addEventListener("click", function () {
 // auton leave
 document.getElementById('auton-leave').addEventListener('click', () => {
   if (!gameEnded) {
+    // change the styling 
     let autonLeave = document.getElementById('auton-leave');
     if (autonLeave.classList.contains('on')) {
       autonLeave.classList.remove('on');
       autonLeave.classList.add('off');
+
+      // take away the points recieved
+      currentScore -= autonScoreVals["leave"];
+
+      let scoreDisplay = document.getElementById('score');
+      scoreDisplay.innerText = currentScore;
     }
     else {
       autonLeave.classList.remove('off');
       autonLeave.classList.add('on');
+
+      // add the points received for leave
+      currentScore += autonScoreVals["leave"];
+
+      let scoreDisplay = document.getElementById('score');
+      scoreDisplay.innerText = currentScore;
     }
+
+
   }
   else {
     gameAlert();
@@ -364,17 +397,7 @@ document.getElementById('auton-leave').addEventListener('click', () => {
 // undo button 
 document.getElementById('undo').addEventListener('click', () => {
   if (!gameEnded) {
-    let undoButton = document.getElementById('undo');
-    if (undoMode) {
-      undoButton.classList.replace('on', 'off');
-      document.getElementById('game-buttons').classList.remove('undo-mode');
-      undoMode = false;
-    }
-    else {
-      undoButton.classList.replace('off', 'on');
-      document.getElementById('game-buttons').classList.add('undo-mode');
-      undoMode = true;
-    }
+    toggleUndo();
   }
 })
 
@@ -434,6 +457,15 @@ document.getElementById("processor").addEventListener("click", function () {
     gameAlert()
   }
 });
+
+document.getElementById('algae-removed').addEventListener('click', () => {
+  if (!gameEnded) {
+    buttonPressed('r');
+  }
+  else {
+    gameAlert();
+  }
+})
 
 document.getElementById("net").addEventListener("click", function () {
   if (!gameEnded) {
