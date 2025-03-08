@@ -241,7 +241,7 @@ body {
     display: inline-flex;
 
     /* height: 5vh; */
-    width: 40vw;
+    width: max(60vw, 10em);
 
     justify-content: center;
 }
@@ -349,6 +349,10 @@ body {
     background-color: var(--red-alliance-active);
 }
 
+#game-buttons.undo-mode p {
+    color: var(--red-alliance-active);
+}
+
 
 #game-buttons.inactive h2,
 #game-buttons.inactive p {
@@ -356,14 +360,14 @@ body {
 }
 
 #game-buttons.auton h2,
-#game-buttons.auton p {
+#game-buttons.auton:not(.undo-mode) p {
     color: var(--accent);
 }
 
 #game-buttons.teleop h2,
-#game-buttons.teleop p {
+#game-buttons.teleop:not(.undo-mode) p {
     color: var(--text-color);
-}
+} 
 
 
 #game-buttons.inactive button {
@@ -407,20 +411,38 @@ body {
 
 }
 
+#additionals h2 {
+    margin: none;
+}
+
+#additionals div {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    font-size: min(4vw, 1em);
+
+    width: 34%;
+
+}
+
 #additionals button {
     height: 80%;
     width: 20%;
     
     border-radius: 20em;
 
-    font-size: 2em;
+    font-size: min(4vw, 1.25em);
     /* font-weight: bold; */
     color: var(--color-three);
 }
 
-button#auton-leave {
+/* button#auton-leave {
     font-size: 1.25em;
-}
+} */
 
 #game-buttons:not(.inactive) #undo.off {
     background-color: var(--color-four);
@@ -827,50 +849,11 @@ input[type=number] {
 
 @media screen and (max-width: 1000px)
 {
-    #game-buttons {
-        /* flex-direction: column; */
-        /* height: calc(80vh + 8em); */
-    }
-
     #switch {
         height: 5vh;
     }
 
-    #coral {
-        /* min-width: 100%;
-        min-height: 80%; */
-
-        margin: 0px;
-    }
-
-    #algae {
-        /* min-width: 100%;
-        min-height: 20%; */
-
-        /* height: 20vh;
-        min-height: 4em;
-        display: inline-flex;
-        flex-direction: row;
-
-        margin: 0px;
-
-        align-items: space-evenly;
-        justify-items: center; */
-    }
-
-    #algae button {
-        width: 50%;
-        height: 100%;
-
-        margin: 0px;
-    }
-
-    #algae button img {
-        width: 90%;
-        height: auto;
-    }
-
-    #endgame-buttons {
-        font-size: 4vh;
+    #game-buttons #coral button:focus, #game-buttons #algae button:focus {
+        background-color: white !important;
     }
 }

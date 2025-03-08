@@ -53,13 +53,22 @@ function beginGame() {
   var timerDisplay = document.getElementById("timer-display");
   timerDisplay.innerText = 0;
   
-  // make coral points start at 0
-  for (let i = 1; i < 5; i++) {
-    document.getElementById("l" + i + "-score").innerText = 0;
-  }
+  // // make coral points start at 0
+  // for (let i = 1; i < 5; i++) {
+  //   document.getElementById("l" + i + "-score").innerText = 0;
+  // }
   
-  document.getElementById("p-score").innerText = 0;
-  document.getElementById("n-score").innerText = 0;
+  // document.getElementById("p-score").innerText = 0;
+  // document.getElementById("n-score").innerText = 0;
+
+  // reset the scoring displays
+  currentScore = 0;
+  document.getElementById('score').innerText = 0;
+
+  let scoreDisplays = document.getElementsByClassName('num-score');
+  for (let i = 0; i < scoreDisplays.length; i++) {
+    scoreDisplays[i].innerText = 0;
+  }
   
   // change game button style to auton
   autonStyle()
@@ -263,7 +272,8 @@ function endGame() {
   // change the end button to the start button
   var startButton = document.getElementById("starter");
   startButton.innerText = "Start Game";
-  // pressChange(startButton);
+  
+  
   
   // change button styling
   inactiveStyle();
@@ -399,6 +409,9 @@ document.getElementById('undo').addEventListener('click', () => {
   if (!gameEnded) {
     toggleUndo();
   }
+  else {
+    gameAlert();
+  }
 })
 
 // coral buttons
@@ -406,16 +419,9 @@ for (let i = 1; i <= 4; i++) {
   document.getElementById("l" + i).addEventListener("click", function() {
     if (!gameEnded) {
       buttonPressed(`l${i}`);
-      
-      // let score = document.getElementById("l" + i + "-score");
-      // score.innerText = parseInt(score.innerText) + 1;
-      // appendEvent(i);
-      
-      // addScore("l" + i);
-      // // pressChange(document.getElementById("l" + i)); // color change
     }
     else {
-      gameAlert()
+      gameAlert();
     }
   });
 }
@@ -446,15 +452,9 @@ for (let i = 1; i <= 4; i++) {
 document.getElementById("processor").addEventListener("click", function () {
   if (!gameEnded) {
     buttonPressed('p');
-    // appendEvent('p');
-    // let score = document.getElementById("p-score");
-    // score.innerText = parseInt(score.innerText) + 1;
-    
-    // addScore('processor');
-    // pressChange(document.getElementById("processor"));
   }
   else {
-    gameAlert()
+    gameAlert();
   }
 });
 
@@ -470,15 +470,9 @@ document.getElementById('algae-removed').addEventListener('click', () => {
 document.getElementById("net").addEventListener("click", function () {
   if (!gameEnded) {
     buttonPressed('n');
-    // appendEvent('n');
-    // let score = document.getElementById("n-score");
-    // score.innerText = parseInt(score.innerText) + 1;
-    
-    // addScore('net');
-    // pressChange(document.getElementById("net"));
   }
   else {
-    gameAlert()
+    gameAlert();
   }
 });
 
