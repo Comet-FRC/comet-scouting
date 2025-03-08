@@ -821,7 +821,6 @@ input[type=number] {
     display: flex;
     justify-content: center;
     font-size: 2em;
-    visibility: visible;
 }
 
 #code-info div {

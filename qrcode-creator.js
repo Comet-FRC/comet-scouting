@@ -173,6 +173,7 @@ function showCurrentCode() {
   document.getElementById("qrcode").innerText = "";
 
   // remove code information
+  document.getElementById("code-info").style.visibility = "hidden";
   document.getElementById("code-team").innerText = "";
   document.getElementById("code-match").innerText = "";
 
@@ -192,6 +193,7 @@ function showCurrentCode() {
     console.log(matchInfo + " " + teamInfo);
 
     // display team and match numbers
+    document.getElementById("code-info").style.visibility = "visible";
     document.getElementById("code-team").innerText = "Team: " + teamInfo;
     document.getElementById("code-match").innerText = "Match: " + matchInfo;
 
