@@ -1,7 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" mainfest="cache.manifest">
+<html lang="en" manifest="scouting.appcache">
 <head>
   <title>COMET FRC Scouting</title>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/scouting-app/sw.js') // Path to the Service Worker file
+      .then((registration) => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+    }
+  </script>
   
   <link href="styles.css" rel="stylesheet">
 </head>
