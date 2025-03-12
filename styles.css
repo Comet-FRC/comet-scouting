@@ -153,6 +153,10 @@ body {
     overflow: hidden;
 }
 
+#alliance-switch:focus {
+    outline: solid 1px white;
+}
+
 #alliance-switch button {
     height: 100%;
 
@@ -754,7 +758,7 @@ select {
     align-items: center;
     justify-content: center;
 
-    color: vr(--background-color);
+    color: var(--background-color);
     transition: background-color 0.15s ease, color 0.15s ease, scale 0.075s ease-out;
     /* margin: 1rem 0; */
     border-radius: 0.75em;

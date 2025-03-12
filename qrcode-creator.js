@@ -57,9 +57,10 @@ function isCompleted() {
     }
   }
 
-  let allianceSwitch = document.getElementById('alliance-switch');
-  if (allianceSwitch.value == "") {
-    return allianceSwitch.value;
+
+  let redAlliance = document.getElementById('red-alliance');
+  if (!redAlliance.classList.contains('switch-active') && !redAlliance.classList.contains('switch-inactive')) {
+    return document.getElementById('alliance-switch');
   }
 
 
