@@ -97,8 +97,14 @@ function getFormData() {
   codeText = hexString + codeText;
 
   // get and store the scout's initals
-  hexString = document.getElementById("scout-id").value.toUpperCase().slice(0, 3);
-  codeText = hexString + codeText;
+  let initials = document.getElementById('scout-id').value.toUpperCase();
+  while (initials.length < 3) {
+    initials += "A";
+  }
+  if (initials.length > 3) {
+    initials = initials.slice(0, 3);
+  }
+  codeText = initials + codeText;
 
 
   // convert the end position to to a hex string

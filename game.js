@@ -151,7 +151,7 @@ function buttonPressed( buttonType ) {
   if (!undoMode) {
     // add one and append the event
     score.innerText = parseInt(score.innerText) + 1;
-    appendEvent(buttonType);
+    appendEvent(buttonType[0] == 'l' ? buttonType[1] : buttonType);
 
     addScore(buttonType);
   }
