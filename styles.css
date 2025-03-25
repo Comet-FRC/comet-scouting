@@ -796,11 +796,26 @@ select {
     left: 0;
 }
 
-.cont
+#large-container.cont
 {
     justify-content: center;
     align-items: center;
-    background-color:rgba(255, 255, 255, 0.558)
+    background-color:rgba(0, 0, 0, 0.558)
+}
+
+#mini-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mini-container.cont {
+    background-color: white;
+}
+
+#large-qr {
+    width: auto;
+    height: auto;
 }
 
 .pressed

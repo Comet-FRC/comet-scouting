@@ -43,7 +43,7 @@ function generateCode() {
   codeNumber = codes.length - 1;
   showCurrentCode();
   
-  // clear the current code textj
+  // clear the current code text
   codeText = "";
 }
 
@@ -197,8 +197,7 @@ function showCurrentCode() {
     // obtain team and match numbers after decoding the current qrcode
     matchInfo = decode(codes[codeNumber].slice(3, 4));
     teamInfo = decode(codes[codeNumber].slice(5, 7));
-    console.log(matchInfo + " " + teamInfo);
-
+    
     // display team and match numbers
     document.getElementById("code-info").style.visibility = "visible";
     document.getElementById("code-team").innerText = "Team: " + teamInfo;
@@ -256,13 +255,20 @@ function enlargen() {
   container.style.display = "flex";
   container.classList.add("cont");
 
+  let miniContainer = document.getElementById('mini-container');
+  miniContainer.style.width = `${(2 * dimension) * 1.1}px`;
+  miniContainer.style.height = `${(2 * dimension) * 1.1}px`;
+  miniContainer.classList.add('cont');
+
+  
   // if anywhere else is clicked, remove the tint and the qr code
-  container.addEventListener("click", function() {
+  container.addEventListener("click", minimizeCode = () => {
     container.style.visibility = "hidden";
     container.style.display = "none";
     container.classList.remove("cont");
 
     document.getElementById("large-qr").innerText = "";
+    container.removeEventListener('click', minimizeCode);
   });
 }
 
