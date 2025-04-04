@@ -163,6 +163,7 @@
           <script type="application/ecmascript" src="form.js"></script>
         </div>
       </section>
+
       
       
       <button class="b1" name="submit" id="submit">Generate Code</button>
@@ -177,7 +178,7 @@
       </div>
     </div>
     <div id="qrcode"></div>   
-
+    
     <div id="code-info">
       <div id="code-match">Match: </div>
       <div id="code-team">Team: </div>
@@ -186,9 +187,18 @@
     <button class="b1" id="previous">Previous</button>
     <button class="b1" id="next">Next</button>
   </div>
+  <section id="online">
+    <h3>(please only use this if you have a stable internet connection)</h3>
+    <form id="upload-form">
+      <input type="text" id="upload-code" name="upload-code" required style="display: none;">
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes"></textarea>
+      <input class="b1" type="submit" id="upload" name="upload" required value="Upload Scouting Data">
+    </form>
+  </section>
   
   <script type="application/ecmascript" src="qrcode.js"></script>  
   <script type="application/ecmascript" src="qrcode-creator.js"></script>
 </body>
 <script type="application/ecmascript" src="preload.js"></script>
-</html> 
+</html>

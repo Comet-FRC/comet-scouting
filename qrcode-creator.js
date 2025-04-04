@@ -42,6 +42,10 @@ function generateCode() {
   // set the current form displayed to the most recently created one
   codeNumber = codes.length - 1;
   showCurrentCode();
+
+  // prep the code text for upload
+  uploadText = document.getElementById('upload-code');
+  uploadText.value = codeText;
   
   // clear the current code text
   codeText = "";

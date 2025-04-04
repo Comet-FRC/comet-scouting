@@ -731,6 +731,81 @@ select {
     overflow-y:auto;
 }
 
+#online {
+    align-self: center;
+
+    display: flex;
+    flex-direction: column; 
+
+    height: 10em;
+    width: 40vw;
+
+    min-width: 7em;
+
+    border-radius: 10vh;
+
+    padding: 5%;
+    margin: 1em;
+
+    font-size: 6vh;
+
+    
+    text-overflow: clip;
+
+    background-color: var(--color-four);
+}
+
+#online h2 {
+    font-size: min(1em, 6vw);
+}
+
+#online h3 {
+    font-size: min(0.4em, 2vw);
+    align-self: center;
+    
+    /* color: var(--color-three); */
+}
+
+#online form label {
+    align-self: start;
+}
+#online textarea {
+    height: 100%;
+    width: 100%;
+
+    color: white;
+    background-color: var(--color-three);
+    outline: none;
+    border: none;
+
+    padding: 0.5em;
+
+    font-size: calc(2em / 3);
+
+    vertical-align: top;
+    text-align: left;
+
+    resize: none;
+
+    font-family: var(--body-font);
+
+    border-radius: 0.75em;
+}
+
+#online form {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+
+    height: 100%;
+}
+
+#upload {
+    margin: 0.25em;
+    font-size: min(1em, 8vw);
+}
+
 #submit {
     font-size: 4em;
     margin-bottom: 2em;

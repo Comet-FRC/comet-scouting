@@ -68,3 +68,41 @@ for (let i = 0; i < inputElems.length; i++) {
     })
   }
 }
+
+// ensure that the form is fully filled out
+document.getElementById('upload').addEventListener('click', function (event) {
+  if (document.getElementById('upload-code').value == '') {
+    event.preventDefault();
+
+    document.getElementById('submit').focus();
+    alert("Please create a qr code before attempting to upload data!");
+  }
+});
+
+// form data upload
+document.getElementById('upload-form').addEventListener('submit', async function (event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const jsonObject = Object.fromEntries(formData.entries());
+
+  jsonObject.team = Number.parseInt(document.getElementById('team').value);
+  jsonObject.match = Number.parseInt(document.getElementById('match').value);
+
+  const response = await fetch("https://ohrghyoie8.execute-api.us-east-1.amazonaws.com/comet-scouting/submit", {
+    method: "POST",
+    headers: { 
+      "Content-Type": "application/json" 
+    },
+    body: JSON.stringify(jsonObject),
+  });
+
+  if (response.ok) {
+    alert("Form submitted successfully");
+  }
+  else {
+    alert("Error submitting form");
+    console.log(response.status);
+    console.log(response.statusText);
+  }
+});
